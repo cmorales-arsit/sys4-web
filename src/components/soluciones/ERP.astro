@@ -1,0 +1,329 @@
+---
+interface Feature {
+  title: string;
+  description: string;
+}
+ 
+const features: Feature[] = [
+  {
+    title: "100% Cloud nativo",
+    description:
+      "Sin servidores propios ni instalaciones. Tu sistema siempre disponible, siempre actualizado, desde cualquier dispositivo con internet.",
+  },
+  {
+    title: "Adaptable a tu negocio",
+    description:
+      "Cada funcionalidad se configura según tus procesos. El sistema se adapta a vos, no al revés.",
+  },
+  {
+    title: "Modular e integrable",
+    description:
+      "Activás los módulos que necesitás hoy y sumás los que tu operación requiera mañana. Compatible con otros sistemas que ya usás.",
+  },
+  {
+    title: "Multiplataforma",
+    description:
+      "Accedé desde computadora, tablet o celular. Tu operación no se detiene aunque vos estés en movimiento.",
+  },
+  {
+    title: "Infraestructura incluida",
+    description:
+      "Solo necesitás conexión a internet. SYS4 se encarga de los servidores, la seguridad, el mantenimiento y los backups.",
+  },
+  {
+    title: "Menor inversión inicial",
+    description:
+      "Sin grandes desembolsos en hardware ni en equipos de soporte técnico. Tecnología de alto nivel con costos accesibles.",
+  },
+];
+
+interface ModuleItem {
+  title: string;
+  description: string;
+}
+ 
+const operaciones: ModuleItem[] = [
+  {
+    title: "Ventas",
+    description:
+      "Circuitos de comprobantes configurables, múltiples listas de precios y monedas, descuentos por jerarquía, facturación electrónica y gestión impositiva adaptable a cada operación.",
+  },
+  { title: "Compras", description: "Órdenes de compra y cotización, recepción de mercadería, catálogos de proveedores y comprobantes electrónicos. Todo el circuito de compras bajo control." },
+  { title: "Inventario", description: "Administración de múltiples depósitos y ubicaciones, trazabilidad por lote o número de serie, identificación por código de barras y clasificación personalizada de artículos. Sabés exactamente qué tenés y dónde está." },
+  { title: "Fabricación", description: "Listas de materiales, órdenes de fabricación, routing, backflush y gestión de descartes y desperdicios. Control real sobre lo que producís." },
+];
+ 
+const finanzas: ModuleItem[] = [
+  {
+    title: "Contabilidad",
+    description:
+      "Plan de cuentas configurable, contabilización por centro de costos, asientos modelo y reportes múltiples para tomar decisiones con información confiable.",
+  },
+  { title: "Tesorería", description: "Gestión de múltiples cajas y monedas, instrumentos financieros configurables, arqueos y transferencias entre cajas. Cuentas bancarias, cheques propios y de terceros, conciliación bancaria y planes de pago" },
+  { title: "Cuentas a cobrar", description: "Recibos de cobro, pagos a cuenta y gestión completa de instrumentos financieros. Controlá lo que te deben con precisión." },
+  { title: "Cuentas a pagar", description: "Órdenes de pago individuales y masivas, impresión de cheques propios e instrumentos financieros configurables. Pagá a tiempo y sin errores." },
+];
+ 
+interface Industry {
+  name: string;
+  href: string;
+  icon: string;
+}
+ 
+const industries: Industry[] = [
+  {
+    name: "Constructoras",
+    href: "/sectores/constructoras",
+    icon: "/icons/1.svg"
+  },
+  {
+    name: "Manufacturas",
+    href: "/sectores/manufacturas",
+    icon: "/icons/3.svg"
+  },
+  {
+    name: "Servicios",
+    href: "/sectores/servicios",
+    icon: "/icons/5.svg"
+  },
+  {
+    name: "Comercializadoras",
+    href: "/sectores/comercializadoras",
+    icon: "/icons/2.svg"
+  },
+  {
+    name: "Contadores",
+    href: "/sectores/contadores",
+    icon: "/icons/4.svg"
+  },
+  {
+    name: "ONG",
+    href: "/sectores/ong",
+    icon: "/icons/6.svg"
+  },
+];
+---
+
+<!-- ===================== PRINCIPAL ===================== -->
+<section class="relative flex min-h-[620px] w-full items-center overflow-hidden md:min-h-[680px]">
+	<!-- Imagen de fondo -->
+	<img
+		src="/images/soluciones/erp/Banner.png"
+		alt=""
+		class="absolute inset-0 -z-10 h-full w-full object-cover"
+		style="object-position: 30% 40%;"
+	/>
+ 
+	<!-- Contenido -->
+	<div class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pt-32 sm:px-6 md:flex-row md:items-end md:gap-10 md:pt-22">
+		<div class="flex max-w-lg flex-col">
+			<h1 class="text-3xl leading-12 md:leading-16 font-light text-white md:text-4xl lg:text-5xl">
+				Tu operación entera.
+				<strong class="block font-semibold">Un solo sistema.</strong>
+			</h1>
+ 
+			<p class="mt-12 max-w-md text-base leading-5 font-light text-white md:text-base">
+				ERP SYS4 integra todas las áreas de tu empresa en una plataforma 100% cloud, adaptable a tu operación y lista para crecer con vos.
+			</p>
+		</div>
+ 
+		<a
+			href="/contacto"
+			class="flex w-fit shrink-0 items-center gap-2 rounded-xs md:ms-12 mb-3 bg-secondary px-6 py-3 text-base font-light text-white transition-colors"
+		>
+			Agendá una demo
+			<img
+				src="/icons/VerMas.svg"
+				alt=""
+				class="ms-6 h-3 w-3"
+			/>
+		</a>
+	</div>
+</section>
+
+<!-- ===================== Features ===================== -->
+<section class="bg-white px-6 py-10 md:px-12 lg:px-10">
+    <div class="mx-auto max-w-6xl">
+      <!-- Intro: texto + imagen -->
+      <div class="grid items-center gap-10 md:grid-cols-2 md:gap-12">
+
+        <!-- Texto -->
+        <div>
+            <h2
+                class="max-w-sm text-3xl font-light leading-9 md:text-3xl"
+            >
+                Crecer sin perder el control es posible. Pero necesitás
+                <strong class="block font-semibold">
+                    el sistema correcto.
+                </strong>
+            </h2>
+
+            <div class="max-w-md leading-relaxed">
+                <p class="mt-5 text-lg leading-5 md:text-base">
+                    Cuando las áreas de una empresa trabajan con información dispersa, las decisiones llegan tarde o se
+                    toman mal. El ERP SYS4 centraliza administración, ventas, compras, inventario, fabricación y
+                    finanzas en un único sistema integrado.
+                </p>
+            
+                <p class="mt-4 text-lg leading-5 md:text-base">
+                    Sin datos perdidos entre áreas. Sin decisiones a ciegas. Con la información que necesitás,
+                    <strong class="font-semibold"> cuando la necesitás.</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Imagen -->
+        <div class="overflow-hidden">
+            <img
+                src="/images/soluciones/erp/Img-erp-1.png"
+                alt="Operario controlando el ERP SYS4 desde una tablet en planta"
+                class="h-[240px] w-full max-w-[420px] object-cover md:h-[320px] md:w-[570px] md:max-w-none"
+                loading="lazy"
+            />
+        </div>
+
+    </div>
+   
+      <!-- Grid de beneficios -->
+      <div class="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          features.map((feature) => (
+            <div>
+              <div class="relative flex h-16 w-16 items-center justify-center">
+                <img
+                    src="/icons/Capa.svg"
+                    alt=""
+                    class="h-18 w-18"
+                />
+
+                <!-- Imagen centrada encima -->
+                    <img
+                        src="/icons/Tilde.svg"
+                        alt=""
+                        class="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2"
+                    />
+              </div>
+              
+              <div>
+    <h3 class="mt-4 max-w-[290px] text-3xl font-semibold">
+        {feature.title}
+    </h3>
+
+    <p class="mt-2 max-w-[300px] text-lg leading-5 md:max-w-[260px] md:text-sm">
+        {feature.description}
+    </p>
+</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+</section>
+
+<!-- ===================== MÓDULOS (ACORDEÓN) ===================== -->
+<section class="bg-primary-light px-6 py-15 md:px-12 lg:px-20">
+    <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-10">
+
+        <!-- Operaciones -->
+        <div >
+            <div class="mb-4 flex items-center gap-2">
+                <span class="h-6 w-6 shrink-0 rounded-full bg-secondary"></span>
+                <h3 class="text-3xl font-semibold">Operaciones</h3>
+            </div>
+
+            <div class="divide-y divide-slate-100 overflow-hidden rounded-lg bg-white">
+                {
+                    operaciones.map((item, index) => (
+                        <details class="group" open={index === 0}>
+                            <summary class="flex cursor-pointer list-none items-center justify-between px-5 py-2.5">
+                                <span class="font-semibold text-xl">
+                                    {item.title}
+                                </span>
+
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center text-2xl font-light leading-none text-secondary">
+                                    <span class="block group-open:hidden">+</span>
+                                    <span class="hidden group-open:block">−</span>
+                                </span>
+                            </summary>
+
+                            <p class="px-5 pb-3 text-md max-w-[520px] leading-4 font-light">
+                                {item.description}
+                            </p>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Finanzas -->
+        <div >
+            <div class="mb-4 flex items-center gap-2">
+                <span class="h-6 w-6 shrink-0 rounded-full bg-secondary"></span>
+                <h3 class="text-3xl font-semibold">Finanzas</h3>
+            </div>
+
+            <div class="divide-y divide-slate-100 overflow-hidden rounded-lg bg-white">
+                {
+                    finanzas.map((item, index) => (
+                        <details class="group" open={index === 0}>
+                            <summary class="flex cursor-pointer list-none items-center justify-between px-5 py-2.5">
+                                <span class="font-semibold  text-xl">
+                                    {item.title}
+                                </span>
+
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center text-2xl font-light leading-none text-secondary">
+                                    <span class="block group-open:hidden">+</span>
+                                    <span class="hidden group-open:block">−</span>
+                                </span>
+                            </summary>
+
+                            <p class="px-5 pb-3 text-md max-w-[520px] leading-4 font-light">
+                                {item.description}
+                            </p>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+
+    </div>
+</section>
+   
+<!-- ===================== INDUSTRIAS ===================== -->
+<section class="bg-white px-6 py-24 md:px-12 lg:px-20">
+    <div class="mx-auto grid max-w-5xl items-start gap-10 md:grid-cols-2 md:gap-16">
+
+        <h2 class="text-2xl font-light leading-snug md:text-3xl">
+            <strong class="font-semibold">ERP SYS4</strong> está pensado para industrias que necesitan
+            <strong class="font-semibold"> orden, control y estructura para crecer.</strong>
+        </h2>
+
+        <div class="flex max-w-md flex-col gap-1">
+            {
+                industries.map((industry) => (
+                    <a
+                        href={industry.href}
+                        class="flex items-center gap-3 rounded-full bg-primary px-5 py-3 text-white transition-colors "
+                    >
+                       <img
+    src={industry.icon}
+    alt=""
+    class="h-5 w-5 shrink-0"
+/>
+
+                        <span class="flex-1 text-sm font-medium">
+                            {industry.name}
+                        </span>
+
+                        <img
+                            src="/icons/VerMas.svg"
+                            alt=""
+                            class="ms-4 h-3 w-3"
+                        />
+                    </a>
+                ))
+            }
+        </div>
+
+    </div>
+</section>

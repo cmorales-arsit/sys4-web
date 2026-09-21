@@ -1,0 +1,121 @@
+---
+import Hero from "../../components/industrias/secciones/Hero.astro";
+import Problemas from "../../components/industrias/secciones/Problemas.astro";
+import Soluciones from "../../components/industrias/secciones/Soluciones.astro";
+import Beneficios from "../../components/industrias/secciones/Beneficios.astro";
+
+interface Problema {
+  title: string;
+  description: string;
+}
+ 
+const problemas: Problema[] = [
+  {
+    title: "Fondos difíciles de rastrear",
+    description: "Los ingresos vienen de múltiples fuentes: donaciones, subsidios, convenios. Sin un sistema, saber exactamente cuánto hay y en qué se usa es una tarea compleja.",
+  },
+  {
+    title: "Rendición de cuentas sin respaldo sólido",
+    description: "Financiadores y organismos exigen información precisa y documentada. Cuando los registros son manuales o dispersos, rendir cuentas se convierte en un problema.",
+  },
+  {
+    title: "Proyectos sin visibilidad de costos",
+    description: "Cada proyecto consume recursos, tiempo y dinero. Pero saber cuánto cuesta realmente cada iniciativa es difícil cuando la información no está integrada.",
+  },
+  {
+    title: "Gestión administrativa que consume energía",
+    description: "El equipo dedica tiempo valioso a tareas administrativas que un sistema podría resolver. Tiempo que podría estar en la misión de la organización.",
+  },
+  {
+    title: "Crecimiento sin estructura",
+    description: "A medida que la organización suma proyectos y beneficiarios, el desorden administrativo crece con ella. Lo que funcionaba de manera informal ya no alcanza.",
+  },
+];
+ 
+interface Solucion {
+  title: string;
+  description: string;
+  img:string
+}
+ 
+const soluciones: Solucion[] = [
+  {
+    title: "Gestión fondos por proyecto",
+    description: "Registrá ingresos y egresos por fuente de financiamiento y proyecto. Sabé exactamente cuánto tenés, cuánto gastaste y cuánto queda en cada iniciativa.",
+    img:"/icons/4.svg"
+  },
+  {
+    title: "Contabilidad transparente",
+    description: "Plan de cuentas configurable, centros de costos por proyecto y reportes listos para presentar a financiadores, organismos o dirección. Sin trabajo extra de preparación.",
+    img:"/icons/17.svg"
+  },
+  {
+    title: "Control de presupuesto",
+    description: "Presupuesto planificado vs. ejecución real en tiempo real. Detectá desvíos antes de que comprometan el proyecto o la relación con el financiador.",
+    img:"/icons/11.svg"
+  },
+  {
+    title: "Gestión de cuentas y proveedores",
+    description: "Órdenes de compra, recepción y documentación integradas. Cada gasto respaldado y trazable desde el primer momento.",
+    img:"/icons/7.svg"
+  },
+  {
+    title: "Tesorería integrada",
+    description: "Movimientos de caja, bancos y conciliación en un solo lugar. La posición financiera de la organización siempre clara y disponible.",
+    img:"/icons/19.svg"
+  },
+  {
+    title: "Reportes para rendición de cuentas",
+    description: "Información organizada y exportable para presentar a financiadores, consejos directivos o auditorías. Sin armar reportes desde cero cada vez.",
+    img:"/icons/9.svg"
+  },
+];
+ 
+const beneficios: string[] = [
+  "Fondos gestionados con transparencia y trazabilidad total",
+  "Costos reales por proyecto siempre visibles",
+  "Rendición de cuentas respaldada por información confiable",
+  "Presupuesto ejecutado vs. planificado en tiempo real",
+  "Equipo enfocado en la misión, no en lo administrativo",
+  "Estructura para crecer sin perder el control",
+];
+ 
+---
+
+<Hero
+    imagen="/images/industrias/ong/Banner.png"
+    descripcion="SYS4 le da a tu organización la estructura para gestionar fondos, proyectos y recursos con transparencia y control. Para que cada peso rinda donde más importa."
+>
+    <Fragment slot="titulo">
+      <strong class="font-semibold">Tu ONG puede generar mayor impacto. Solo le falta orden y sistema.</strong>
+    </Fragment>
+</Hero>
+
+<Problemas problems={problemas}>
+  <Fragment slot="titulo">
+    <strong class="font-semibold">Los desafíos de las organizaciones sin fines de lucro.</strong>
+  </Fragment>
+</Problemas>
+
+<Soluciones soluciones={soluciones}>
+  <Fragment slot="titulo">
+    Si los recursos son limitados, gestionarlos bien es la clave.
+  </Fragment>
+</Soluciones>
+ 
+<!-- ===================== FOTO FULL-WIDTH ===================== -->
+<section class="w-full">
+  <img
+    src="/images/industrias/ong/Banner-2.png"
+    alt=""
+    class="h-[320px] w-full object-cover md:h-[420px] lg:h-[550px]"
+    loading="lazy"
+  />
+</section>
+
+<Beneficios beneficios={beneficios}>
+  <Fragment slot="titulo">
+    Con SYS4 mejorás tu estructura y multiplicás el impacto que generás.
+  </Fragment>
+</Beneficios>
+

@@ -1,0 +1,47 @@
+---
+interface Props {
+    imagen: string;
+    descripcion: string;
+}
+
+const {
+    imagen,
+    descripcion,
+} = Astro.props;
+---
+
+<!-- ===================== Hero ===================== -->
+<section class="relative flex min-h-[620px] w-full items-center overflow-hidden md:min-h-[680px]">
+	<!-- Imagen de fondo -->
+	<img
+		src={imagen}
+		alt=""
+		class="absolute inset-0 -z-10 h-full w-full object-cover"
+		style="object-position: 30% 40%;"
+	/>
+ 
+	<!-- Contenido -->
+	<div class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pt-32 sm:px-6 md:flex-row md:items-end md:gap-2 md:pt-22">
+		<div class="flex max-w-[650px] flex-col">
+			<h1 class="leading-8 text-2xl  md:leading-12 font-light text-white md:text-4xl lg:text-5xl">
+				<slot name="titulo" />
+			</h1>
+ 
+			<p class="mt-12 max-w-md text-md leading-5 font-light text-white md:text-base">
+				{descripcion}
+			</p>
+		</div>
+ 
+		<a
+			href="/contacto"
+			class="flex w-fit shrink-0 items-center gap-2 rounded-xs md:-ms-20 mb-3 bg-secondary px-6 py-3 text-base font-light text-white transition-colors "
+		>
+			Hablá con un asesor
+			<img
+				src="/icons/VerMas.svg"
+				alt=""
+				class="ms-6 h-3 w-3"
+			/>
+		</a>
+	</div>
+</section>

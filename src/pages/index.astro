@@ -1,0 +1,28 @@
+---
+import Home from '../components/Home/Home.astro';
+import Layout from '../layouts/Layout.astro';
+import Form from '../components/Form.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Sys4">
+    <Home />
+    <Form>
+        <Fragment slot="titulo">
+            <h2
+                class="text-center text-2xl font-semibold leading-tight text-white sm:text-3xl"
+            >
+                Contanos en qué etapa<br class="hidden sm:block" />
+                está tu <strong>constructora.</strong>
+            </h2>
+        </Fragment>
+    
+        <Fragment slot="descripcion">
+            <p class="mt-1 mb-6 text-center text-sm md:text-2xl font-light text-white sm:text-base">
+                Nosotros nos encargamos del resto.
+            </p>
+        </Fragment>
+    </Form>
+</Layout>

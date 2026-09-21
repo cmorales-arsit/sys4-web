@@ -1,0 +1,126 @@
+---
+import Hero from "../../components/industrias/secciones/Hero.astro";
+import Problemas from "../../components/industrias/secciones/Problemas.astro";
+import Soluciones from "../../components/industrias/secciones/Soluciones.astro";
+import Beneficios from "../../components/industrias/secciones/Beneficios.astro";
+
+interface Problema {
+  title: string;
+  description: string;
+}
+ 
+const problemas: Problema[] = [
+  {
+    title: "Presupuesto sin seguimiento",
+    description: "Los costos reales difieren de lo planificado y no se sabe dónde se fue esa diferencia.",
+  },
+  {
+    title: "Materiales sin control",
+    description: "No hay certeza de cuánto hay, dónde está ni cuánto se consumió en cada etapa",
+  },
+  {
+    title: "Múltiples obras, poca visibilidad",
+    description: "Cada obra con sus propias planillas. Tener una visión global es casi imposible.",
+  },
+  {
+    title: "Decisiones sin información a tiempo",
+    description: "Los reportes llegan tarde o no reflejan lo que realmente está pasando en obra.",
+  },
+  {
+    title: "Subcontratos difíciles de auditar",
+    description: "Certificaciones, avances y pagos gestionados por fuera del sistema, en mails y hojas de cálculo.",
+  },
+];
+ 
+interface Solucion {
+  title: string;
+  description: string;
+  img:string
+}
+ 
+const soluciones: Solucion[] = [
+  {
+    title: "Control de costos por obra",
+    description: "Costos reales vs. presupuesto en tiempo real. Detectá desvíos antes de que impacten en la rentabilidad.",
+    img:"/icons/4.svg"
+  },
+  {
+    title: "Gestión de materiales y stock",
+    description: "Inventario controlado en múltiples depósitos y obras. Sabé exactamente qué tenés y dónde está.",
+    img:"/icons/9.svg"
+  },
+  {
+    title: "Gestión de compras",
+    description: "Órdenes de compra, recepción y proveedores integrados. Comprá lo que necesitás, cuando lo necesitás.",
+    img:"/icons/7.svg"
+  },
+  {
+    title: "Seguimiento de avance de obra",
+    description: "Planificación por hitos, control de avance y alertas ante desvíos. Toda la obra bajo seguimiento.",
+    img:"/icons/1.svg"
+  },
+  {
+    title: "Gestión de subcontratos",
+    description: "Certificaciones, avances y pagos integrados al sistema. Sin información dispersa.",
+    img:"/icons/6.svg"
+  },
+  {
+    title: "Finanzas integradas",
+    description: "Cuentas a cobrar, a pagar, tesorería y contabilidad conectadas a cada proyecto.",
+    img:"/icons/8.svg"
+  },
+];
+ 
+const beneficios: string[] = [
+  "Costos reales visibles en tiempo real, obra por obra",
+  "Desvíos detectados antes de que se vuelvan pérdidas",
+  "Stock controlado sin duplicaciones ni faltantes",
+  "Múltiples obras gestionadas desde un único sistema",
+  "Subcontratos y certificaciones bajo control",
+  "Decisiones respaldadas por información confiable",
+];
+ 
+---
+
+<Hero
+    imagen="/images/industrias/constructoras/Banner.png"
+    descripcion="SYS4 integra costos, materiales, subcontratos y finanzas en un solo sistema. Para que cada decisión llegue con información y no con suposiciones."
+>
+    <Fragment slot="titulo">
+        <strong class="font-semibold">Más control sobre cada obra. </strong>
+        Desde el presupuesto hasta el cierre.
+    </Fragment>
+</Hero>
+
+<Problemas problems={problemas}>
+  <Fragment slot="titulo">
+    <strong class="font-semibold">Todas las constructoras pasan por lo mismo</strong>
+  </Fragment>
+</Problemas>
+
+<Soluciones soluciones={soluciones}>
+  <Fragment slot="titulo">
+      <strong class="font-semibold">
+          Tu obra puede tener cada área bajo control.
+      </strong>
+      Sin información perdida en el medio.
+  </Fragment>
+</Soluciones>
+ 
+<!-- ===================== FOTO FULL-WIDTH ===================== -->
+<section class="w-full">
+  <img
+    src="/images/industrias/constructoras/Banner-2.png"
+    alt=""
+    class="h-[320px] w-full object-cover md:h-[420px] lg:h-[550px]"
+    loading="lazy"
+  />
+</section>
+
+<Beneficios beneficios={beneficios}>
+  <Fragment slot="titulo">
+      Cuando tu constructora opera con sistema,
+      cada obra es más rentable.
+  </Fragment>
+</Beneficios>
+ 

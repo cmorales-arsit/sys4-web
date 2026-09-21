@@ -1,0 +1,120 @@
+---
+import Hero from "../../components/industrias/secciones/Hero.astro";
+import Problemas from "../../components/industrias/secciones/Problemas.astro";
+import Soluciones from "../../components/industrias/secciones/Soluciones.astro";
+import Beneficios from "../../components/industrias/secciones/Beneficios.astro";
+
+interface Problema {
+  title: string;
+  description: string;
+}
+ 
+const problemas: Problema[] = [
+  {
+    title: "Gestión multicliente sin estructura",
+    description: "Cada cliente con su propio criterio, sus propias planillas y su propio sistema. Escalar el estudio sin perder calidad es cada vez más difícil.",
+  },
+  {
+    title: "Proceso manuales que consumen tiempo",
+    description: "Carga de datos, conciliaciones y liquidaciones que se hacen a mano. Horas de trabajo que podrían dedicarse a asesorar, no a administrar.",
+  },
+  {
+    title: "Información dispersa",
+    description: "Los datos de cada cliente viven en distintos lugares. Cuando hay que responder rápido, encontrar lo que se necesita lleva más tiempo del que debería.",
+  },
+  {
+    title: "Vencimientos que no perdonan",
+    description: "Impuestos, cargas sociales, presentaciones. Un error o un olvido tiene consecuencias reales para el cliente y para la reputación del estudio.",
+  },
+  {
+    title: "Dificultad para delegar",
+    description: "El conocimiento está en las personas, no en el sistema. Cuando alguien del equipo falta, la operación se complica.",
+  },
+];
+ 
+interface Solucion {
+  title: string;
+  description: string;
+  img:string
+}
+ 
+const soluciones: Solucion[] = [
+  {
+    title: "Gestión multiempresa",
+    description: "Administrá múltiples clientes desde una sola plataforma. Cada empresa con su propia configuración, sus propios accesos y su información separada y segura.",
+    img:"/icons/16.svg"
+  },
+  {
+    title: "Contabilidad integrada",
+    description: "Plan de cuentas configurable, asientos modelo, centros de costos y reportes múltiples. Todo lo que el estudio necesita para llevar la contabilidad de cada cliente con precisión.",
+    img:"/icons/17.svg"
+  },
+  {
+    title: "Liquidación de impuestos",
+    description: "Gestión impositiva integrada al sistema. Menos riesgo de error, menos tiempo de carga y vencimientos siempre bajo control.",
+    img:"/icons/18.svg"
+  },
+  {
+    title: "Cuentas a cobrar y a pagar",
+    description: "Seguimiento de cobranzas, pagos y saldos de cada cliente en tiempo real. Sin planillas paralelas ni conciliaciones manuales.",
+    img:"/icons/8.svg"
+  },
+  {
+    title: "Tesorería y bancos",
+    description: "Conciliación bancaria, gestión de cheques y movimientos de caja integrados. La posición financiera de cada cliente, siempre actualizada.",
+    img:"/icons/19.svg"
+  },
+  {
+    title: "Acceso diferenciado por cliente",
+    description: "Cada cliente accede únicamente a su propia información. El estudio mantiene el control total sobre los datos y los permisos.",
+    img:"/icons/14.svg"
+  },
+];
+ 
+const beneficios: string[] = [
+  "Múltiples clientes gestionados desde una sola plataforma",
+  "Procesos automatizados que liberan tiempo del equipo",
+  "Vencimientos e impuestos bajo control y sin errores",
+  "Información de cada cliente organizada y siempre disponible",
+  "Operación que no depende de personas puntuales",
+  "Capacidad de escalar sin sumar desorden",
+];
+ 
+---
+
+<Hero
+    imagen="/images/industrias/contadores/Banner.png"
+    descripcion="SYS4 le da a tu estudio las herramientas para gestionar múltiples clientes con precisión, sin procesos manuales y con información siempre disponible."
+>
+    <Fragment slot="titulo">
+      <strong class="font-semibold">¿Tu estudio está creciendo? Hacé que el sistema crezca con él.</strong>
+    </Fragment>
+</Hero>
+
+<Problemas problems={problemas}>
+  <Fragment slot="titulo">
+    <strong class="font-semibold">Los desafíos de los estudios contables.</strong>
+  </Fragment>
+</Problemas>
+
+<Soluciones soluciones={soluciones}>
+  <Fragment slot="titulo">
+    El tiempo que hoy perdés en procesos podés ponerlo en vos.
+  </Fragment>
+</Soluciones>
+ 
+<!-- ===================== FOTO FULL-WIDTH ===================== -->
+<section class="w-full">
+  <img
+    src="/images/industrias/contadores/Banner-2.png"
+    alt=""
+    class="h-[320px] w-full object-cover md:h-[420px] lg:h-[550px]"
+    loading="lazy"
+  />
+</section>
+
+<Beneficios beneficios={beneficios}>
+  <Fragment slot="titulo">
+    Cuando tu estudio opera con sistema, escalar deja de ser un riesgo.
+  </Fragment>
+</Beneficios>

@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "@fontsource-variable/stack-sans-headline/wght.css";
+
+
+@theme {
+
+    --font-stack: "Stack Sans Headline Variable", sans-serif;
+    --font-stack-soft: "Ancizar Serif", serif;
+
+    /* Colores principales */
+    --color-primary: #1F2A51;
+    --color-secondary: #FF4E46;
+
+    /* Colores intermedios */
+    --color-primary-soft: #B4BBD3;
+    --color-secondary-soft: #FFC2BF;
+    
+    /* Colores claros */
+    --color-primary-light: #E4E7F2;
+    --color-secondary-light: #FFF4F4;
+
+    /* Neutros */
+    --color-white: #FFFFFF;
+}
+
+body {
+    font-family: "Stack Sans Headline Variable", sans-serif;
+}

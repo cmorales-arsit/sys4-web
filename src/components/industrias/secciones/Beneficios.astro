@@ -1,0 +1,37 @@
+---
+interface Props {
+    beneficios: string[];
+}
+
+const { beneficios } = Astro.props;
+---
+
+<!-- ===================== Beneficios ===================== -->
+<section class="bg-white px-6 py-16 md:px-12 lg:px-20">
+    <div class="mx-auto max-w-2xl">
+        <h2 class="mx-auto text-center font-semibold text-2xl leading-8 text-primary md:text-[40px]">
+            <slot name="titulo" />
+        </h2>
+
+        <div class="mt-10 grid justify-items-center gap-x-8 gap-y-1 sm:grid-cols-1">
+            {
+                beneficios.map((texto) => (
+                    <div class="flex w-full max-w-xl items-center gap-3 rounded-4xl bg-primary px-2 py-2 max-md:flex-col max-md:gap-3 max-md:py-6">
+
+                        <span class="mt-0.5 me-5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white md:h-6 md:w-6 max-md:me-0 max-md:mt-0">
+                            <span
+                                class="h-4 w-4 bg-secondary"
+                                style="mask: url('/icons/Tilde.svg') center / contain no-repeat; -webkit-mask: url('/icons/Tilde.svg') center / contain no-repeat;"
+                            ></span>
+                        </span>
+
+                        <p class="text-lg font-light leading-relaxed text-white max-md:text-center">
+                            {texto}
+                        </p>
+
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

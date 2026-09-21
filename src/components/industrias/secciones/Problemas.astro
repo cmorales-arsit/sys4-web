@@ -1,0 +1,49 @@
+---
+interface Problem {
+    title: string;
+    description: string;
+}
+
+interface Props {
+    problems: Problem[];
+}
+
+const { problems } = Astro.props;
+---
+
+<!-- ===================== Problemas ===================== -->
+<section class="bg-white px-6 py-16 md:px-12 lg:px-20">
+    <div class="mx-auto max-w-6xl">
+        <h2 class="mx-auto max-w-sm text-center text-2xl font-semibold leading-8 text-primary md:text-3xl">
+            <slot name="titulo" />
+        </h2>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-6">
+            {
+                problems.map((item, index) => (
+                    <div
+                        class:list={[
+                            "relative min-h-[180px] rounded-xl bg-primary px-12 py-8 md:me-3 sm:col-span-2",
+                            index === 3 && "sm:col-start-2",
+                            index === 4 && "sm:col-start-4",
+                        ]}
+                    >
+                        <!-- X -->
+                        <div class="absolute -left-4 top-8 flex h-9 w-9 items-center justify-center rounded-md bg-secondary text-white">
+                            X
+                        </div>
+
+                        <!-- Contenido -->
+                        <h3 class="text-xl font-semibold text-white md:max-w-[150px]">
+                            {item.title}
+                        </h3>
+
+                        <p class="mt-2 text-md leading-5 font-light text-white">
+                            {item.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

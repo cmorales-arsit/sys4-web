@@ -1,0 +1,316 @@
+---
+interface NavItem {
+    nombre: string;
+    href: string;
+}
+
+const navItems: NavItem[] = [
+    {
+        nombre: "Home",
+        href: "/",
+    },
+    {
+        nombre: "Soluciones",
+        href: "/soluciones",
+    },
+    {
+        nombre: "Industrias",
+        href: "#industrias",
+    },
+    {
+        nombre: "Consultoría",
+        href: "#consultoria",
+    },
+    {
+        nombre: "Nosotros",
+        href: "#nosotros",
+    },
+    {
+        nombre: "Contacto",
+        href: "#contacto",
+    },
+];
+
+interface Props {
+    transparentHeader?: boolean;
+}
+
+const { transparentHeader = false } = Astro.props;
+
+const rutaActual = Astro.url.pathname;
+---
+
+<header
+    class={
+        transparentHeader
+            ? "absolute inset-x-0 top-0 z-50 w-full bg-transparent"
+            : "absolute inset-x-0 top-0 z-50 w-full bg-white"
+    }
+>
+    <div
+        class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6"
+    >
+        <!-- Logo -->
+        <a href="/" class="shrink-0">
+            <img
+                src="/logo.png"
+                alt="Sys4"
+                class={
+                    transparentHeader
+                        ? "h-7 w-auto brightness-0 invert"
+                        : "h-7 w-auto"
+                }
+            />
+        </a>
+
+        <!-- Navegación desktop -->
+        <nav class="hidden items-center sm:flex">
+            {
+                navItems.map((item, index) => (
+                    item.nombre === "Soluciones" ? (
+                        <div class="group relative">
+                            <span
+                                class:list={[
+                                    "flex h-7 rounded-sm cursor-default items-center px-5 text-sm font-medium text-white transition",
+                                    rutaActual.startsWith("/soluciones")
+                                        ? "bg-secondary"
+                                        : "bg-primary hover:bg-primary-soft",
+                                ]}
+                            >
+                                {item.nombre}
+                            </span>
+
+                            <!-- Dropdown Soluciones -->
+                            <div
+                                class="invisible absolute left-0 top-full z-50 mt-1 w-40 overflow-hidden rounded-sm bg-primary opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100"
+                            >
+                                <a
+                                    href="/soluciones/erp"
+                                    class="block px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft"
+                                >
+                                    ERP
+                                </a>
+
+                                <a
+                                    href="/soluciones/mes"
+                                    class="block px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft"
+                                >
+                                    MES
+                                </a>
+                            </div>
+                        </div>
+                    ) : item.nombre === "Industrias" ? (
+                        <div class="group relative">
+                            <span
+                                class:list={[
+                                    "flex h-7 rounded-sm cursor-default items-center px-5 text-sm font-medium text-white transition",
+                                    rutaActual.startsWith("/industrias")
+                                        ? "bg-secondary"
+                                        : "bg-primary hover:bg-primary-soft",
+                                ]}
+                            >
+                                {item.nombre}
+                            </span>
+                            <!-- Dropdown Industrias -->
+                            <div
+                                class="invisible absolute left-0 top-full z-50 mt-1 w-48 overflow-hidden rounded-sm bg-primary opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100"
+                            >
+                                <a
+                                    href="/industrias/constructoras"
+                                    class="block px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft"
+                                >
+                                    Constructoras
+                                </a>
+
+                                <a
+                                    href="/industrias/manufacturas"
+                                    class="block px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft"
+                                >
+                                    Manufacturas
+                                </a>
+
+                                <a
+                                    href="/industrias/servicios"
+                                    class="block px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft"
+                                >
+                                    Servicios
+                                </a>
+
+                                <a
+                                    href="/industrias/comercializadoras"
+                                    class="block px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft"
+                                >
+                                    Comercializadoras
+                                </a>
+
+                                <a
+                                    href="/industrias/contadores"
+                                    class="block px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft"
+                                >
+                                    Contadores
+                                </a>
+
+                                <a
+                                    href="/industrias/ong"
+                                    class="block px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft"
+                                >
+                                    ONG
+                                </a>
+
+                            </div>
+                        </div>
+                    ) : (
+                        <a
+                            href={item.href}
+                            class:list={[
+                                "flex h-7 items-center rounded-sm px-5 text-sm font-medium text-white transition",
+                                item.href === rutaActual
+                                    ? "bg-secondary"
+                                    : "bg-primary hover:bg-primary-soft",
+                                index === 0 &&
+                                    "rounded-sm rounded-l-sm",
+                                index === navItems.length - 1 &&
+                                    "rounded-sm rounded-r-sm",
+                            ]}
+                        >
+                            {item.nombre}
+                        </a>
+                    )
+                ))
+            }
+        </nav>
+
+        <!-- Instagram -->
+        <a
+            href="https://www.instagram.com/sys4_software/"
+            aria-label="Instagram"
+            class="hidden h-5 w-5 items-center justify-center rounded-full bg-primary transition hover:bg-secondary sm:flex"
+        >
+            <img
+                src="/icons/Instagram-1.svg"
+                alt="Instagram"
+                class="h-3 w-3"
+            />
+        </a>
+
+        <!-- Menú mobile -->
+        <details class="relative sm:hidden">
+            <summary
+                class="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md bg-primary text-white"
+                aria-label="Abrir menú"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                >
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                </svg>
+            </summary>
+
+            <nav
+                class="absolute right-0 top-11 z-50 flex w-52 flex-col overflow-hidden rounded-md bg-primary shadow-lg"
+            >
+                {
+                    navItems.map((item, index) => (
+                        item.nombre === "Soluciones" ? (
+                            <details>
+                                <summary
+                                    class="cursor-pointer list-none px-5 py-3 text-sm font-medium text-white hover:bg-primary-soft"
+                                >
+                                    {item.nombre}
+                                </summary>
+
+                                <div class="bg-primary-soft">
+                                    <a
+                                        href="/soluciones/erp"
+                                        class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                                    >
+                                        ERP
+                                    </a>
+
+                                    <a
+                                        href="/soluciones/mes"
+                                        class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                                    >
+                                        MES
+                                    </a>
+                                </div>
+                            </details>
+                        ) : item.nombre === "Industrias" ? (
+                            <details>
+                                <summary
+                                    class="cursor-pointer list-none px-5 py-3 text-sm font-medium text-white hover:bg-primary-soft"
+                                >
+                                    {item.nombre}
+                                </summary>
+
+                                <div class="bg-primary-soft">
+                                    <a
+                                        href="/industrias/constructoras"
+                                        class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                                    >
+                                        Constructoras
+                                    </a>
+
+                                    <a
+                                        href="/industrias/comercializadoras"
+                                        class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                                    >
+                                        Comercializadoras
+                                    </a>
+
+                                    <a
+                                        href="/industrias/manufacturas"
+                                        class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                                    >
+                                        Manufacturas
+                                    </a>
+
+                                    <a
+                                        href="/industrias/contadores"
+                                        class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                                    >
+                                        Contadores
+                                    </a>
+
+                                    <a
+                                        href="/industrias/servicios"
+                                        class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                                    >
+                                        Servicios
+                                    </a>
+
+                                    <a
+                                        href="/industrias/ong"
+                                        class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                                    >
+                                        ONG
+                                    </a>
+                                </div>
+                            </details>
+                        ) : (
+                            <a
+                                href={item.href}
+                                class:list={[
+                                    "px-5 py-3 text-sm font-medium text-white hover:bg-primary-soft",
+                                    index === 0 &&
+                                        "bg-secondary hover:bg-secondary",
+                                ]}
+                            >
+                                {item.nombre}
+                            </a>
+                        )
+                    ))
+                }
+            </nav>
+        </details>
+    </div>
+</header>

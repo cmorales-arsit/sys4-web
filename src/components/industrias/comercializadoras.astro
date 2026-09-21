@@ -1,0 +1,124 @@
+---
+import Hero from "../../components/industrias/secciones/Hero.astro";
+import Problemas from "../../components/industrias/secciones/Problemas.astro";
+import Soluciones from "../../components/industrias/secciones/Soluciones.astro";
+import Beneficios from "../../components/industrias/secciones/Beneficios.astro";
+
+
+interface Problema {
+  title: string;
+  description: string;
+}
+ 
+const problemas: Problema[] = [
+  {
+    title: "Stock que no refleja la realidad",
+    description: "Lo que dice el sistema no coincide con lo que hay físicamente. Errores de despacho, faltantes y sobre stock que inmoviliza capital.",
+  },
+  {
+    title: "Precios dificiles de sostener",
+    description: "Múltiples listas, descuentos por cliente, variaciones de costos. Sin un sistema, mantener la política de precios es un trabajo en sí mismo.",
+  },
+  {
+    title: "Compras reactivas",
+    description: "Se compra cuando ya falta. Sin planificación ni visibilidad sobre el ritmo de ventas, el abastecimiento siempre va un paso atrás.",
+  },
+  {
+    title: "Cobranzas descontroladas",
+    description: "Las cuentas corrientes de clientes se gestionan de manera manual o fragmentada. La mora crece sin que nadie la vea a tiempo.",
+  },
+  {
+    title: "Rentabilidad opaca",
+    description: "Se vende mucho pero no se sabe exactamente cuánto queda. Los costos reales y los márgenes por producto son difíciles de calcular.",
+  },
+];
+ 
+interface Solucion {
+  title: string;
+  description: string;
+  img:string
+}
+ 
+const soluciones: Solucion[] = [
+  {
+    title: "Gestión de ventas",
+    description: "Presupuestos, órdenes de venta, remitos y facturación electrónica en un solo circuito. Múltiples listas de precios, monedas y descuentos configurables por cliente.",
+    img:"/icons/4.svg"
+  },
+  {
+    title: "Control de stock",
+    description: "Inventario en tiempo real en múltiples depósitos. Trazabilidad por lote, puntos de reposición automáticos y control de valuación. Lo que hay, dónde está y cuánto vale.",
+    img:"/icons/9.svg"
+  },
+  {
+    title: "Gestión de compras",
+    description: "Órdenes de compra integradas al stock y a las finanzas. Abastecimiento planificado en función de la demanda real, no de la urgencia.",
+    img:"/icons/7.svg"
+  },
+  {
+    title: "Cuentas corrientes de clientes",
+    description: "Saldos, cobranzas, instrumentos financieros y gestión de mora en tiempo real. Cada cuenta bajo control, sin sorpresas al cierre del mes.",
+    img:"/icons/14.svg"
+  },
+  {
+    title: "Rentabilidad por productos",
+    description: "Costos reales, márgenes y rentabilidad por línea de producto o canal de venta. Información para decidir qué vender, a quién y a qué precio.",
+    img:"/icons/15.svg"
+  },
+  {
+    title: "Finanzas integradas",
+    description: "Tesorería, cuentas a pagar y contabilidad conectadas a toda la operación comercial. Un solo número, siempre confiable.",
+    img:"/icons/8.svg"
+  },
+];
+ 
+const beneficios: string[] = [
+  "Stock real sincronizado con ventas y compras",
+  "Política de precios sostenida sin esfuerzo manual",
+  "Abastecimiento planificado, sin urgencias ni excesos",
+  "Cobranzas bajo control con visibilidad en tiempo real",
+  "Márgenes y rentabilidad por producto siempre visibles",
+  "Decisiones comerciales respaldadas por datos concretos",
+];
+ 
+---
+
+<Hero
+    imagen="/images/industrias/comercializadoras/Banner.png"
+    descripcion="SYS4 integra ventas, stock, compras y finanzas para que tu empresa comercializadora opere con precisión y escale sin perder rentabilidad."
+>
+    <Fragment slot="titulo">
+      El volumen de ventas que buscás necesita una
+      <strong class="font-semibold"> operación que lo sostenga.</strong>
+    </Fragment>
+</Hero>
+
+<Problemas problems={problemas}>
+  <Fragment slot="titulo">
+    <strong class="font-semibold">Los desafíos de las comercializadoras</strong>
+  </Fragment>
+</Problemas>
+
+<Soluciones soluciones={soluciones}>
+  <Fragment slot="titulo">
+    Del pedido al cobro,
+    <strong class="font-semibold"> sin puntos ciegos en el medio.</strong>
+  </Fragment>
+</Soluciones>
+ 
+<!-- ===================== FOTO FULL-WIDTH ===================== -->
+<section class="w-full">
+  <img
+    src="/images/industrias/comercializadoras/Banner-2.png"
+    alt=""
+    class="h-[320px] w-full object-cover md:h-[420px] lg:h-[550px]"
+    loading="lazy"
+  />
+</section>
+
+<Beneficios beneficios={beneficios}>
+  <Fragment slot="titulo">
+    Una operación comercial que no se improvisa.
+  </Fragment>
+</Beneficios>
+ 

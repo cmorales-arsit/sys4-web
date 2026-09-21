@@ -1,0 +1,580 @@
+---
+interface Testimonio {
+    video: string;
+    portada: string;
+    foto: string;
+    nombre: string;
+}
+
+const testimonios: Testimonio[] = [
+    {
+        video: "/films/Testimonio-1.mp4",
+        portada: "/images/home/Portada-1.png",
+        foto: "/images/home/Mask-1.png",
+        nombre: "Viviana Picco",
+    },
+    {
+        video: "/films/Testimonio-2.mp4",
+        portada: "/images/home/Portada-2.png",
+        foto: "/images/home/Mask-2.png",
+        nombre: "Tomás Reiloba",
+    },
+    {
+        video: "/films/Testimonio-3.mp4",
+        portada: "/images/home/Portada-3.png",
+        foto: "/images/home/Mask-3.png",
+        nombre: "Walter Gonzalez",
+    },
+]
+
+interface Herramienta {
+    titulo: string;
+    descripcion: string;
+    href: string;
+}
+
+const herramientas: Herramienta[] = [
+    {
+        titulo: "ERP SYS 4",
+        descripcion:
+            "Sistema de Gestión empresarial 100% cloud. Administración, ventas, compras, stock y finanzas integrados en un solo lugar.",
+        href: "/soluciones/erp",
+    },
+    {
+        titulo: "MES SYS 4",
+        descripcion:
+            "Monitoreo de planta en tiempo real. Medí rendimiento, detectá ineficiencias y tomá decisiones con datos concretos.",
+        href: "/soluciones/mes",
+    },
+    {
+        titulo: "Consultoria",
+        descripcion:
+            "Antes de implementar, analizamos tu operación y definimos el camino más claro hacia el orden.",
+        href: "/consultoria",
+    },
+];
+
+interface Sector {
+    nombre: string;
+    icono: string;
+    href: string;
+}
+
+const sectores: Sector[] = [
+    {
+        nombre: "Constructoras",
+        icono: "/icons/1.svg",
+        href: "/industrias/constructoras",
+    },
+    {
+        nombre: "Comercializadoras",
+        icono: "/icons/2.svg",
+        href: "/industrias/comercializadoras",
+    },
+    {
+        nombre: "Manufacturas",
+        icono: "/icons/3.svg",
+        href: "/industrias/manufacturas",
+    },
+    {
+        nombre: "Contadores",
+        icono: "/icons/4.svg",
+        href: "/industrias/contadores",
+    },
+    {
+        nombre: "Servicios",
+        icono: "/icons/5.svg",
+        href: "/industrias/servicios",
+    },
+    {
+        nombre: "ONG",
+        icono: "/icons/6.svg",
+        href: "/industrias/ong",
+    },
+];
+
+interface Diferencial {
+    imagen: string;
+    alt: string;
+    titulo: string;
+    descripcion: string;
+    tituloWidth: string;
+}
+
+const diferenciales: Diferencial[] = [
+    {
+        imagen: "/images/home/Img-Home-4.png",
+        alt: "Equipo de SYS4",
+        titulo: "Sistemas propios y de clase mundial",
+        descripcion:
+            "Desarrollamos nuestro sistema propio ERP y MES.",
+            tituloWidth: "max-w-[140px]",
+    },
+    {
+        imagen: "/images/home/Img-Home-5.png",
+        alt: "Acompañamiento de SYS4",
+        titulo: "Acompañamiento real",
+        descripcion:
+            "No entregamos un sistema sin acompañamiento. Estamos antes, durante y después de cada implementación.",
+            tituloWidth: "max-w-[170px]",
+    },
+    {
+        imagen: "/images/home/Img-Home-6.png",
+        alt: "Experiencia industrial de SYS4",
+        titulo: "Experiencia industrial",
+        descripcion:
+            "Años trabajando con industrias de todo tipo nos dieron algo que no se compra: conocimiento profundo de los procesos de cada sector.",
+            tituloWidth: "max-w-[135px]",
+    },
+];
+
+interface Cliente {
+    nombre:string,
+    imagen: string;
+    tamaño: string;
+}
+
+const clientes: Cliente[] = [
+    {
+        nombre:"Arcor",
+        imagen: "/images/clientes/Arcor.png",
+        tamaño:"max-w-[100px] lg:max-w-[75px]"
+    },
+    {
+        nombre:"AGD",
+        imagen: "/images/clientes/AGD.png",
+        tamaño:"max-w-[100px] lg:max-w-[75px]"
+    },
+    {
+        nombre:"Grupo Las Marias",
+        imagen: "/images/clientes/GLM.png",
+        tamaño:"lg:max-w-[150px]"
+    },
+    {
+        nombre:"Kinross",
+        imagen: "/images/clientes/Kinross.png",
+        tamaño:"lg:max-w-[200px]"
+    },
+    {
+        nombre:"Servicios Viales",
+        imagen: "/images/clientes/ServiciosViales.png",
+        tamaño:"lg:max-w-[85px]"
+    },
+    {
+        nombre:"Teknal",
+        imagen: "/images/clientes/Teknal.png",
+        tamaño:"lg:max-w-[100px]"
+    },
+    {
+        nombre:"San Antonio",
+        imagen: "/images/clientes/SanAntonio.png",
+        tamaño:"lg:max-w-[100px] "
+    },
+    {
+        nombre:"IPL Schoeller",
+        imagen: "/images/clientes/IPLS.png",
+        tamaño:"lg:max-w-[100px] opacity-75"
+    },
+    {
+        nombre:"Deloitte",
+        imagen: "/images/clientes/Deloitte.png",
+        tamaño:"lg:max-w-[100px]"
+    },
+    {
+        nombre:"Grupo Peñaflor",
+        imagen: "/images/clientes/GPF.png",
+        tamaño:"lg:max-w-[180px]"
+    },
+];
+---
+
+<!-- Script para los videos de testimonios -->
+<script>
+    const buttons =
+        document.querySelectorAll<HTMLButtonElement>(".play-button");
+
+    buttons.forEach((button) => {
+        const container = button.closest<HTMLElement>("div");
+
+        const video =
+            container?.querySelector<HTMLVideoElement>(
+                ".testimonial-video"
+            );
+
+        const poster =
+            container?.querySelector<HTMLImageElement>(
+                ".testimonial-poster"
+            );
+
+        if (!video || !poster) return;
+
+        button.addEventListener("click", () => {
+            poster.classList.add("hidden");
+            button.classList.add("hidden");
+
+            video.controls = true;
+            video.play();
+        });
+
+        video.addEventListener("ended", () => {
+            video.pause();
+            video.currentTime = 0;
+
+            video.controls = false;
+
+            poster.classList.remove("hidden");
+            button.classList.remove("hidden");
+        });
+    });
+</script>
+
+<!-- ===================== PRINCIPAL ===================== -->
+<section class="relative mt-16 overflow-hidden bg-primary py-14 sm:py-16">
+    <div
+        class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8"
+    >
+        <!-- Columna de texto -->
+        <div class="mx-auto w-full max-w-xl lg:mx-0">
+            <h1
+                class="text-3xl font-light leading-tight text-white sm:text-4xl lg:text-[2.75rem]"
+            >
+                Tu empresa puede crecer<br />
+                sin perder el control.
+                <span class="mt-1 block font-bold">
+                    Nosotros lo hacemos posible
+                </span>
+            </h1>
+
+            <p
+                class="mt-10 max-w-[500px] font-light text-md md:text-sm leading-5 text-white sm:text-base sm:leading-5"
+            >
+                SYS4 desarrolla, implementa e integra sistemas para industrias.
+                Combinamos tecnología, consultoría y acompañamiento para que tu
+                empresa crezca sin perder el control.
+            </p>
+
+            <a
+                href="#contacto"
+                class="mt-8 inline-flex items-center gap-2 rounded-sm bg-secondary px-6 py-3 text-lg md:text-sm font-light text-white transition-colors "
+            >
+                Contactanos
+
+                <img src="/icons/VerMas.svg" alt="" class="ms-4 h-3 w-3" />
+            </a>
+        </div>
+
+        <!-- Columna de imagen -->
+        <div
+            class="relative mx-auto h-[300px] w-full max-w-[300px]
+           min-[670px]:h-[420px] min-[670px]:max-w-[400px]
+           min-[768px]:h-[440px] min-[768px]:max-w-md
+           lg:mx-0 lg:h-[500px] lg:max-w-[500px]"
+        >
+            <div class="absolute inset-0 overflow-hidden">
+                <img
+                    src="/images/home/Img-Home-1.png"
+                    alt=""
+                    class="h-full w-full object-cover"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white px-6 py-14 md:px-12 md:py-20 lg:px-20">
+    <div
+        class="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-16"
+    >
+        <!-- Texto -->
+        <div>
+            <h2 class="text-2xl leading-tight font-light sm:text-3xl md:text-3xl">
+                Detrás de SYS4 hay
+                <strong class="block font-semibold">
+                    años de experiencia trabajando para empresas como la tuya.
+                </strong>
+            </h2>
+
+            <p class="mt-4 max-w-md font-light text-md md:text-sm leading-6 md:leading-4 md:text-sm">
+                SYS4 es la evolución de una empresa con años de trayectoria
+                acompañando industrias en todo el país. Cambiamos el nombre y la
+                identidad para decir con más claridad lo que siempre hicimos:
+                ordenar organizaciones, proteger operaciones y construir
+                sistemas que sostienen el crecimiento.
+            </p>
+
+            <a
+                href="/nosotros"
+                class="mt-6 inline-flex items-center gap-2 rounded-sm bg-secondary px-5 py-2.5 text-md md:text-xs font-light text-white transition-colors hover:bg-secondary-soft md:text-xs"
+            >
+                Conocé nuestra historia
+
+                <img src="/icons/VerMas.svg" alt="" class="ms-4 h-3 w-3" />
+            </a>
+        </div>
+
+        <!-- Imagen -->
+        <div class="overflow-hidden">
+            <img
+                src="images/home/Img-Home-2.png"
+                alt="Equipo de SYS4"
+                class="h-[220px] w-full object-cover sm:h-[280px] md:h-[380px] lg:h-[300px]"
+                loading="lazy"
+            />
+        </div>
+    </div>
+</section>
+
+<!-- ===================== HERRAMIENTAS ===================== -->
+<section
+    class="bg-primary-light px-4 py-14 sm:px-6 sm:py-16 md:px-10 lg:px-20 lg:py-20"
+>
+    <div
+        class="mx-auto grid max-w-6xl gap-10 md:gap-12 lg:grid-cols-[260px_1fr] lg:items-start lg:gap-16"
+    >
+        <!-- Título -->
+        <div class="text-center lg:text-left">
+            <h2 class="text-2xl leading-tight text-slate-900 sm:text-3xl">
+                <strong class="font-semibold">
+                    Las herramientas correctas
+                </strong>
+
+                <span class="block">
+                    para cada etapa de tu empresa.
+                </span>
+            </h2>
+        </div>
+
+        <!-- Cards -->
+        <div
+            class="grid gap-12 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-5"
+        >
+            {
+                herramientas.map((herramienta) => (
+                    <div
+                        class="relative flex h-[240px] flex-col items-center rounded-xs bg-white px-4 py-8 shadow-sm sm:px-6 sm:py-9"
+                    >
+                        <h3 class="text-center text-2xl md:text-xl font-semibold text-secondary">
+                            {herramienta.titulo}
+                        </h3>
+
+                        <p class="mt-5 md:max-w-[180px] max-w-[250px] text-center text-md md:text-sm leading-tight">
+                            {herramienta.descripcion}
+                        </p>
+
+                        <a
+    href={herramienta.href}
+    class="absolute bottom-0 left-1/2 flex w-44 -translate-x-1/2 translate-y-1/2 items-center justify-center gap-2 bg-secondary px-3 py-3 text-base font-light text-white transition-colors sm:w-40 sm:py-2 sm:text-sm"
+>
+                            Conocer más
+
+                            <img
+                                src="/icons/VerMas.svg"
+                                alt=""
+                                class="ms-4 h-3 w-3"
+                            />
+                        </a>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ===================== BANNER ===================== -->
+<section class="relative w-full overflow-hidden">
+    <img
+        src="images/home/Img-Home-3.jpg"
+        alt="Equipo SYS4 en la oficina"
+        class="h-[280px] w-full object-cover object-[30%_30%] grayscale
+               min-[670px]:object-[0%_15%]
+               md:h-[380px] md:object-[50%_30%]
+               lg:h-[500px] lg:object-[50%_30%]"
+        loading="lazy"
+    />
+</section>
+
+<!-- ===================== SECTORES ===================== -->
+<section class="bg-white px-6 py-16 md:px-12 lg:px-20">
+    <div class="mx-auto max-w-4xl">
+        <h2
+            class="text-center text-2xl font-semibold text-slate-900 md:text-3xl"
+        >
+            ¿En qué sector opera tu empresa?
+        </h2>
+
+        <div
+            class="mt-10 grid gap-3 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-3"
+        >
+            {
+                sectores.map((sector) => (
+                    <a
+                        href={sector.href}
+                        class="flex items-center gap-3 rounded-full bg-primary px-5 py-3.5 text-white transition-colors hover:opacity-90"
+                    >
+                        <img
+                            src={sector.icono}
+                            alt=""
+                            class="h-5 w-5 shrink-0"
+                        />
+
+                        <span class="flex-1 text-sm font-medium">
+                            {sector.nombre}
+                        </span>
+
+                        <img
+                            src="/icons/VerMas.svg"
+                            alt=""
+                            class="ms-4 h-3 w-3"
+                        />
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ===================== DIFERENCIALES ===================== -->
+<section class="bg-primary-light px-6 py-16 md:px-12 lg:px-20">
+    <div class="mx-auto max-w-4xl">
+        <!-- Título -->
+        <h2
+            class="text-center text-2xl md:text-2xl leading-snug text-slate-900 md:text-3xl"
+        >
+            No vendemos un software aislado.
+
+            <strong class="block font-semibold">
+                Ordenamos organizaciones
+            </strong>
+        </h2>
+
+        <!-- Cards -->
+        <div class="mx-auto mt-10 grid max-w-3xl gap-5 md:grid-cols-3">
+            {
+                diferenciales.map((diferencial) => (
+                    <div class="flex flex-col overflow-hidden bg-white">
+                        <img
+                            src={diferencial.imagen}
+                            alt={diferencial.alt}
+                            class="h-44 w-full object-cover"
+                            loading="lazy"
+                        />
+
+                        <div class="flex flex-1 flex-col items-center p-4">
+                            <h3
+                                class={`text-lg md:text-md max-w-[200px] leading-5 text-center font-semibold text-primary ${diferencial.tituloWidth}`}
+                            >
+                                {diferencial.titulo}
+                            </h3>
+
+                            <p class="mt-2 md:max-w-[200px] max-w-[300px] font-light text-center text-md md:text-xs leading-5 md:leading-4 ">
+                                {diferencial.descripcion}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ===================== LOGOS DE CLIENTES ===================== -->
+<section class="bg-white py-16">
+    <div class="mx-auto max-w-5xl px-6 text-center md:px-12 lg:px-20">
+        <h2 class="text-2xl leading-snug md:text-3xl">
+            <strong class="font-semibold text-secondary">
+                Empresas que eligieron crecer
+            </strong>
+            <span class="block font-semibold text-[#1B2545]">
+                con orden y sistema.
+            </span>
+        </h2>
+    </div>
+
+    <div class="mx-auto mt-10 grid w-full grid-cols-2 items-center gap-8 px-4 lg:grid-cols-10 lg:gap-6 lg:px-10">
+        {
+            clientes.map((cliente) => (
+                <div class="flex h-24 items-center justify-center">
+                    <img
+                        src={cliente.imagen}
+                        alt={cliente.nombre}
+                        class:list={[
+    "w-full object-contain grayscale lg:max-h-40",
+    cliente.tamaño,
+]}
+                        loading="lazy"
+                    />
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<!-- ===================== Testimonios ===================== -->
+<section class="bg-primary-light">
+    <div class="bg-primary py-4 text-center">
+        <h2 class="text-2xl font-semibold text-white">
+            Testimonios
+        </h2>
+    </div>
+
+    <div class="overflow-hidden py-20">
+        <div
+            class="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 px-6 lg:flex-row lg:items-start lg:justify-center"
+        >
+            {
+                testimonios.map((testimonio) => (
+                    <article
+                        class="relative w-full max-w-[420px] lg:w-[30%] lg:max-w-[320px]"
+                    >
+                        <div class="relative overflow-visible">
+
+                            <!-- Foto de la persona -->
+                            <div
+                                class="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2"
+                            >
+                                <img
+                                    src={testimonio.foto}
+                                    alt={testimonio.nombre}
+                                    class="h-16 w-16 rounded-full border-2 border-white object-cover shadow-md"
+                                />
+                            </div>
+
+                            <!-- Video -->
+                            <div
+                                class="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[3/4] lg:aspect-[9/16]"
+                            >
+                                <video
+                                    src={testimonio.video}
+                                    class="testimonial-video h-full w-full object-cover"
+                                    playsinline
+                                    preload="metadata"
+                                ></video>
+
+                                <!-- Poster -->
+                                <img
+                                    src={testimonio.portada}
+                                    alt={`Portada del testimonio de ${testimonio.nombre}`}
+                                    class="testimonial-poster absolute inset-0 h-full w-full object-cover"
+                                />
+
+                                <!-- Botón Play -->
+                                <button
+                                    type="button"
+                                    class="play-button absolute left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 p-3"
+                                    aria-label={`Reproducir testimonio de ${testimonio.nombre}`}
+                                >
+                                    <img
+                                        src="/icons/Play.svg"
+                                        alt="Reproducir video"
+                                        class="block h-12 w-12"
+                                    />
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</section>
+

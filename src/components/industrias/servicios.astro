@@ -1,0 +1,122 @@
+---
+import Hero from "../../components/industrias/secciones/Hero.astro";
+import Problemas from "../../components/industrias/secciones/Problemas.astro";
+import Soluciones from "../../components/industrias/secciones/Soluciones.astro";
+import Beneficios from "../../components/industrias/secciones/Beneficios.astro";
+
+interface Problema {
+  title: string;
+  description: string;
+}
+ 
+const problemas: Problema[] = [
+  {
+    title: "Facturacion dispersa",
+    description: "Servicios prestados que se facturan tarde, mal o directamente no se facturan. Ingresos que se pierden por falta de control.",
+  },
+  {
+    title: "Costos dificiles de medir",
+    description: "Saber cuánto cuesta realmente prestar cada servicio es casi imposible cuando la información está en distintos lugares.",
+  },
+  {
+    title: "Gestión de clientes sin visibilidad",
+    description: "No hay registro claro del historial, los acuerdos ni el estado de cada cuenta. Cada consulta requiere buscar en varios sistemas.",
+  },
+  {
+    title: "Procesos que dependen de personas",
+    description: "Cuando alguien falta o se va, el conocimiento se va con él. No hay sistema que sostenga la operación.",
+  },
+  {
+    title: "Crecimiento sin estructura",
+    description: "La empresa crece, se suman clientes y el desorden escala con ellos. Lo que antes funcionaba, ya no alcanza.",
+  },
+];
+ 
+interface Solucion {
+  title: string;
+  description: string;
+  img:string
+}
+ 
+const soluciones: Solucion[] = [
+  {
+    title: "Gestión de facturacion",
+    description: "Circuitos de facturación automatizados y configurables. Cada servicio prestado queda registrado y facturado en tiempo y forma.",
+    img:"/icons/11.svg"
+  },
+  {
+    title: "Control de costos por servicios",
+    description: "Conocé el costo real de cada servicio que prestás. Identificá dónde se pierde rentabilidad y tomá decisiones con números concretos.",
+    img:"/icons/4.svg"
+  },
+  {
+    title: "Gestión de clientes",
+    description: "Historial completo, acuerdos, cuentas corrientes y estado de cada cliente en un solo lugar. Sin búsquedas, sin información dispersa.",
+    img:"/icons/6.svg"
+  },
+  {
+    title: "Administración integrada",
+    description: "Compras, gastos, cuentas a pagar y tesorería conectados a la operación. Un solo sistema para toda la gestión administrativa.",
+    img:"/icons/12.svg"
+  },
+  {
+    title: "Reportes en tiempo real",
+    description: "Información actualizada sobre facturación, cobranzas, costos y rentabilidad. Para decidir con datos, no con intuición.",
+    img:"/icons/9.svg"
+  },
+  {
+    title: "Procesos estandarizados",
+    description: "La operación deja de depender de personas puntuales y pasa a sostenerse sobre un sistema. El conocimiento queda en la empresa.",
+    img:"/icons/13.svg"
+  },
+];
+ 
+const beneficios: string[] = [
+  "Facturación completa, sin servicios prestados sin cobrar",
+  "Costos reales de cada servicio visibles y medibles",
+  "Historial y estado de cada cliente en un solo lugar",
+  "Procesos que no dependen de personas puntuales",
+  "Información financiera integrada y disponible en tiempo real",
+  "Estructura para crecer sin perder el control",
+];
+ 
+---
+
+<Hero
+    imagen="/images/industrias/servicios/Banner.png"
+    descripcion="SYS4 ordena la operación de tu empresa de servicios para que puedas enfocarte en generar valor a tus clientes."
+>
+    <Fragment slot="titulo">
+      El servicio que das hacia afuera empieza por
+      <strong class="font-semibold"> el orden que tenes adentro. </strong>
+    </Fragment>
+</Hero>
+
+<Problemas problems={problemas}>
+  <Fragment slot="titulo">
+    <strong class="font-semibold">Los desafíos de las empresas de servicios.</strong>
+  </Fragment>
+</Problemas>
+
+<Soluciones soluciones={soluciones}>
+  <Fragment slot="titulo">
+    Con SYS4 tu empresa crece en clientes
+    <strong class="font-semibold"> sin que la operación se te escape de las manos.</strong>
+  </Fragment>
+</Soluciones>
+ 
+<!-- ===================== FOTO FULL-WIDTH ===================== -->
+<section class="w-full">
+  <img
+    src="/images/industrias/servicios/Banner-2.png"
+    alt=""
+    class="h-[320px] w-full object-cover md:h-[420px] lg:h-[550px]"
+    loading="lazy"
+  />
+</section>
+
+<Beneficios beneficios={beneficios}>
+  <Fragment slot="titulo">
+    Los cambios que vas a notar desde el día 1.
+  </Fragment>
+</Beneficios>

@@ -1,0 +1,123 @@
+---
+import Hero from "../../components/industrias/secciones/Hero.astro";
+import Problemas from "../../components/industrias/secciones/Problemas.astro";
+import Soluciones from "../../components/industrias/secciones/Soluciones.astro";
+import Beneficios from "../../components/industrias/secciones/Beneficios.astro";
+
+interface Problema {
+  title: string;
+  description: string;
+}
+ 
+const problemas: Problema[] = [
+  {
+    title: "Producción sin visibilidad",
+    description: "La planta trabaja, pero nadie sabe exactamente cuánto rinde, dónde se pierde tiempo ni cuánto cuesta cada ineficiencia.",
+  },
+  {
+    title: "Stock descontrolado",
+    description: "Falta lo urgente y sobra lo innecesario. Las compras se hacen por las dudas o se llega tarde y se frena la producción.",
+  },
+  {
+    title: "Costos ocultos",
+    description: "El negocio crece pero la rentabilidad no. Las ineficiencias y los desperdicios se comen el margen sin que nadie los vea con claridad.",
+  },
+  {
+    title: "Decisiones sin datos confiables",
+    description: "Los reportes llegan tarde, son manuales o no reflejan lo que realmente pasó en planta.",
+  },
+  {
+    title: "Áreas desconectadas",
+    description: "Producción, compras, administración y ventas funcionan con información separada. Nadie tiene el cuadro completo.",
+  },
+];
+ 
+interface Solucion {
+  title: string;
+  description: string;
+  img:string
+}
+ 
+const soluciones: Solucion[] = [
+  {
+    title: "Control de producción",
+    description: "Órdenes de fabricación, listas de materiales, routing y seguimiento de cada etapa del proceso. Sabé exactamente qué se produce, cómo y a qué costo.",
+    img:"/icons/1.svg"
+  },
+  {
+    title: "Monitoreo de planta en tiempo real",
+    description: "Con el MES SYS4 medí rendimiento, detectá cuellos de botella y actuá antes de que el problema impacte en los plazos o en el margen.",
+    img:"/icons/10.svg"
+  },
+  {
+    title: "Gestión de stock",
+    description: "Inventario en tiempo real con trazabilidad por lote o número de serie. Sin faltantes, sin excesos, sin sorpresas.",
+    img:"/icons/9.svg"
+  },
+  {
+    title: "Gestión de compras",
+    description: "Planificación de compras integrada a la producción. Comprá lo que necesitás, cuando lo necesitás, al costo correcto.",
+    img:"/icons/7.svg"
+  },
+  {
+    title: "Control de costos",
+    description: "Costos reales de producción vs. costos teóricos. Desperdicios, reprocesos e ineficiencias visibles antes de que se acumulen.",
+    img:"/icons/4.svg"
+  },
+  {
+    title: "Finanzas integradas",
+    description: "Contabilidad, tesorería y cuentas conectadas a la operación. La rentabilidad real del negocio, disponible cuando la necesitás.",
+    img:"/icons/8.svg"
+  },
+];
+ 
+const beneficios: string[] = [
+  "Rendimiento de planta visible y medible en tiempo real",
+  "Costos de producción reales, sin estimaciones",
+  "Stock controlado sin faltantes ni excesos",
+  "Compras planificadas en función de la producción",
+  "Desperdicios e ineficiencias detectados a tiempo",
+  "Todas las áreas trabajando con la misma información",
+];
+ 
+---
+
+<Hero
+    imagen="/images/industrias/manufacturas/Banner.png"
+    descripcion="SYS4 integra producción, stock, compras y finanzas en un solo sistema. Para que tu planta rinda al máximo y cada decisión llegue con datos reales."
+>
+    <Fragment slot="titulo">
+        <strong class="font-semibold">Producción bajo control.</strong>
+        Desde la materia prima hasta el producto terminado.
+    </Fragment>
+</Hero>
+
+<Problemas problems={problemas}>
+  <Fragment slot="titulo">
+    <strong class="font-semibold">PDesafíos de las manufacturas</strong>
+  </Fragment>
+</Problemas>
+
+<Soluciones soluciones={soluciones}>
+  <Fragment slot="titulo">
+    Producción, stock, compras y finanzas.
+    <strong class="font-semibold"> Ahora lo resolvés con SYS4.</strong>
+  </Fragment>
+</Soluciones>
+ 
+<!-- ===================== FOTO FULL-WIDTH ===================== -->
+<section class="w-full">
+  <img
+    src="/images/industrias/manufacturas/Banner-2.png"
+    alt=""
+    class="h-[320px] w-full object-cover md:h-[420px] lg:h-[550px]"
+    loading="lazy"
+  />
+</section>
+
+<Beneficios beneficios={beneficios}>
+  <Fragment slot="titulo">
+    Cuando aplicás orden y sistema podés estar tranquilo.
+  </Fragment>
+</Beneficios>
+ 
