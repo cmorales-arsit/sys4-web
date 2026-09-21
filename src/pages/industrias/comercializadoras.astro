@@ -6,5 +6,19 @@ import Form from '../../components/Form.astro';
 
 <Layout title="Comercializadoras | Sys4" transparentHeader={true}>
     <Comercializadoras />
-    <Form backGround="bg-primary-light"/>
+    <Form backGround="bg-primary-light">
+        <Fragment slot="titulo">
+            <h2
+                class="text-center text-2xl font-light leading-tight text-white sm:text-2xl"
+            >
+            Vender bien no alcanza si la operación no acompaña.
+            </h2>
+        </Fragment>
+    
+        <Fragment slot="descripcion">
+            <p class="mt-1 mb-6 text-center text-sm md:text-4xl font-light text-white sm:text-base">
+                <strong>Hacelo posible con SYS4.</strong>
+            </p>
+        </Fragment>
+    </Form>
 </Layout>
