@@ -1,41 +1,11 @@
 ---
+import { OptionsItems } from "../components/forms/selectItemse";
+
 interface Props {
     backGround?: string;
 }
 
 const { backGround = "transparent" } = Astro.props;
-
-interface Solucion {
-    value: string;
-    label: string;
-}
-
-const soluciones: Solucion[] = [
-    {
-        value: "erp",
-        label: "ERP SYS4",
-    },
-    {
-        value: "mes",
-        label: "MES SYS4",
-    },
-    {
-        value: "netsuite",
-        label: "Oracle NetSuite",
-    },
-    {
-        value: "jd-edwards",
-        label: "Oracle JD Edwards",
-    },
-    {
-        value: "consultoria",
-        label: "Consultoría",
-    },
-    {
-        value: "no-se",
-        label: "No sé todavía",
-    },
-];
 ---
 
 <footer class={`w-full px-4 py-10 sm:px-6 ${backGround}`}>
@@ -93,9 +63,9 @@ const soluciones: Solucion[] = [
                         </option>
 
                         {
-                            soluciones.map((solucion) => (
-                                <option value={solucion.value}>
-                                    {solucion.label}
+                            OptionsItems.map((option) => (
+                                <option value={option.value}>
+                                    {option.label}
                                 </option>
                             ))
                         }

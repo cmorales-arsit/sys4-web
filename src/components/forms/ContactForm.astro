@@ -1,4 +1,8 @@
-<section class="w-full sm:px-6 ">
+---
+import { OptionsItems } from "../forms/selectItemse";
+---
+
+<section class="w-full sm:px-6">
     <div class="mx-auto w-full max-w-5xl">
         <!-- Formulario -->
         <div class="w-full rounded-sm bg-primary px-5 py-8 sm:px-10 md:px-12">
@@ -12,7 +16,7 @@
                 <input
                     type="text"
                     placeholder="Nombre y apellido"
-                    class="h-9 w-full rounded bg-white px-3 text-sm  outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
+                    class="h-9 w-full rounded bg-white px-3 text-sm outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
                 />
 
                 <!-- Empresa / Email -->
@@ -39,18 +43,20 @@
                     />
 
                     <select
-                        class="h-9 w-full rounded bg-white px-3 text-sm  outline-none focus:ring-2 focus:ring-secondary"
+                        class="h-9 w-full rounded bg-white px-3 text-sm outline-none focus:ring-2 focus:ring-secondary"
                         aria-label="¿Qué solución te interesa?"
                     >
                         <option value="" selected disabled>
                             ¿Qué solución te interesa?
                         </option>
-                        <option value="1">ERP SYS4</option>
-                        <option value="2">MES SYS4</option>
-                        <option value="3">Oracle Netsuite</option>
-                        <option value="4">Oracle JD Edwards</option>
-                        <option value="5">Consultoría</option>
-                        <option value="6">No sé todavía</option>
+
+                        {
+                            OptionsItems.map((option) => (
+                                <option value={option.value}>
+                                    {option.label}
+                                </option>
+                            ))
+                        }
                     </select>
                 </div>
 
@@ -64,7 +70,7 @@
                 <!-- Botón -->
                 <button
                     type="submit"
-                    class="mt-1 h-9 w-full rounded bg-secondary text-sm font-medium text-white transition"
+                    class="mt-1 h-9 w-full cursor-pointer rounded bg-secondary text-sm font-medium text-white transition"
                 >
                     Quiero que me contacten
                 </button>
@@ -73,11 +79,7 @@
             <!-- Redes sociales -->
             <div class="mt-6 flex justify-center gap-3 text-white">
                 <!-- Facebook -->
-                <a
-                    href="#"
-                    aria-label="Facebook"
-                    class="transition "
-                >
+                <a href="#" aria-label="Facebook" class="transition">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -94,7 +96,7 @@
                 <a
                     href="https://www.instagram.com/sys4_software/"
                     aria-label="Instagram"
-                    class="flex h-7 w-7 items-center justify-center rounded-full bg-white text-primary transition "
+                    class="flex h-7 w-7 items-center justify-center rounded-full bg-white text-primary transition"
                 >
                     <img
                         src="/icons/Instagram.svg"
