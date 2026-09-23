@@ -183,41 +183,43 @@ const features: Feature[] = [
             <div
               class:list={[
                 "relative flex min-h-[340px] flex-col bg-secondary px-12 py-8",
-
+        
                 index === 0 &&
                   "sm:rounded-tl-2xl md:rounded-tl-4xl md:rounded-tr-4xl md:rounded-bl-4xl",
-
+        
                 index === 1 &&
                   "sm:rounded-tr-2xl md:rounded-tl-4xl md:rounded-tr-4xl md:rounded-br-4xl",
-
+        
                 index === 2 &&
                   "sm:rounded-bl-2xl md:rounded-bl-4xl md:rounded-br-4xl md:rounded-tl-4xl",
-
+        
                 index === 3 &&
                   "sm:rounded-br-2xl md:rounded-bl-4xl md:rounded-br-4xl md:rounded-tr-4xl",
-
-                // Línea central
+        
+                // Línea central — solo desde sm
                 index === 0 &&
-                  "after:absolute after:bottom-0 after:right-0 after:h-px after:w-12 after:bg-white before:absolute before:bottom-0 before:right-0 before:h-12 before:w-px before:bg-white",
-
+                  "sm:after:absolute sm:after:bottom-0 sm:after:right-0 sm:after:h-px sm:after:w-12 sm:after:bg-white sm:before:absolute sm:before:bottom-0 sm:before:right-0 sm:before:h-12 sm:before:w-px sm:before:bg-white",
+        
                 index === 1 &&
-                  "after:absolute after:bottom-0 after:left-0 after:h-px after:w-12 after:bg-white before:absolute before:bottom-0 before:left-0 before:h-12 before:w-px before:bg-white",
-
+                  "sm:after:absolute sm:after:bottom-0 sm:after:left-0 sm:after:h-px sm:after:w-12 sm:after:bg-white sm:before:absolute sm:before:bottom-0 sm:before:left-0 sm:before:h-12 sm:before:w-px sm:before:bg-white",
+        
                 index === 2 &&
-                  "after:absolute after:top-0 after:right-0 after:h-px after:w-12 after:bg-white before:absolute before:top-0 before:right-0 before:h-12 before:w-px before:bg-white",
-
+                  "sm:after:absolute sm:after:top-0 sm:after:right-0 sm:after:h-px sm:after:w-12 sm:after:bg-white sm:before:absolute sm:before:top-0 sm:before:right-0 sm:before:h-12 sm:before:w-px sm:before:bg-white",
+        
                 index === 3 &&
-                  "after:absolute after:top-0 after:left-0 after:h-px after:w-12 after:bg-white before:absolute before:top-0 before:left-0 before:h-12 before:w-px before:bg-white",
+                  "sm:after:absolute sm:after:top-0 sm:after:left-0 sm:after:h-px sm:after:w-12 sm:after:bg-white sm:before:absolute sm:before:top-0 sm:before:left-0 sm:before:h-12 sm:before:w-px sm:before:bg-white",
               ]}
             >
-              <span class="text-4xl font-light text-white">{step.number}</span>
-
+              <span class="text-4xl font-light text-white">
+                {step.number}
+              </span>
+        
               <div class="mt-16">
                 <h3 class="flex h-16 items-end text-3xl font-semibold leading-8 text-white">
                   {step.title}
                 </h3>
-
-                <p class="mt-3 text-sm font-light leading-5 text-white">
+        
+                <p class="mt-3 text-md md:text-sm font-light leading-5 text-white">
                   {step.description}
                 </p>
               </div>
