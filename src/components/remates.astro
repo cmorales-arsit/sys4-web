@@ -1,0 +1,262 @@
+---
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+}
+
+const steps: Step[] = [
+  {
+    number: "1",
+    title: "Registrarse e ingresar al sistema",
+    description:
+      "Acceso rápido desde cualquier dispositivo con conexión a internet.",
+  },
+  {
+    number: "2",
+    title: "Cargar usuarios y lotes",
+    description:
+      "Alta de compradores, vendedores y catálogo de hacienda desde el panel de administración.",
+  },
+  {
+    number: "3",
+    title: "Crear y publicar el remate",
+    description:
+      "Configuración completa del remate con toda la información para los compradores.",
+  },
+  {
+    number: "4",
+    title: "Iniciar el remate en vivo",
+    description:
+      "El martillero conduce la subasta en tiempo real mientras los compradores ofertan desde cualquier lugar.",
+  },
+];
+
+interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const features: Feature[] = [
+  {
+    title: "Agilidad",
+    description:
+      "Sin traslado de hacienda, sin problemas climáticos ni contratiempos geográficos. El remate sucede independientemente de dónde estén los animales o los compradores.",
+    icon: "icons/30.svg",
+  },
+  {
+    title: "Ahorro",
+    description:
+      "Menor costo y tiempo en la organización y ejecución de cada remate. Un factor clave para la rentabilidad de la firma consignataria.",
+      icon: "icons/31.svg",
+  },
+  {
+    title: "Interacción en tiempo real",
+    description:
+      "Comunicación fluida entre el martillero y los compradores por chat y video. La dinámica del remate presencial, en formato digital.",
+      icon: "icons/32.svg",
+  },
+  {
+    title: "Seguridad",
+    description:
+      "Acceso restringido a usuarios autorizados. Cada transacción verifica el límite de crédito asignado a cada comprador antes de confirmar la oferta.",
+      icon: "icons/33.svg",
+  },
+];
+---
+
+<!-- ===================== PRINCIPAL ===================== -->
+<section class="grid w-full md:grid-cols-[1.1fr_0.9fr]">
+  <div
+    class="flex flex-col justify-center bg-primary px-6 pt-28 pb-16
+           sm:pt-28 sm:pb-16
+           md:px-12 md:pt-28 md:pb-16
+           xl:pt-30 xl:px-28"
+  >
+    <h1
+      class="text-4xl font-semibold leading-tight text-white
+             sm:text-5xl
+             md:text-5xl"
+    >
+      Remates Online.
+    </h1>
+
+    <p
+      class="mt-4 max-w-md text-2xl font-light leading-8 text-white
+             sm:text-3xl sm:leading-9
+             md:text-3xl md:leading-9
+             xl:text-4xl xl:leading-10"
+    >
+      El remate llegó a donde están tus compradores. No al revés.
+    </p>
+
+    <p
+      class="mt-6 max-w-md text-sm font-light leading-5 text-white
+             sm:mt-8
+             md:mt-8"
+    >
+      El sistema de remates online de SYS4 permite subastar hacienda en vivo.
+      Sin traslados, sin limitaciones geográficas, sin depender de la cantidad
+      de animales consignados.
+    </p>
+
+    <a
+      href="/contacto"
+      class="mt-8 inline-flex w-fit items-center gap-2 rounded-sm bg-secondary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-soft"
+    >
+      Conocé el sistema
+      <img
+        src="/icons/VerMas.svg"
+        alt=""
+        class="ms-4 h-3 w-3"
+      />
+    </a>
+  </div>
+
+  <div class="min-h-[260px] md:min-h-[360px] xl:min-h-[420px]">
+    <img
+      src="/images/remates/Banner.png"
+      alt="Persona trabajando en una laptop"
+      class="h-full w-full object-cover"
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<!-- ===================== TEXTO + FOTO ===================== -->
+<section class="bg-white px-6 py-12 md:px-10 md:py-16 xl:px-12">
+  <div
+    class="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-8 xl:gap-14"
+  >
+    <!-- Imagen -->
+    <div class="w-full overflow-hidden md:ml-0 xl:-ml-12">
+      <img
+        src="/images/remates/Img-1.png"
+        alt=""
+        class="h-auto w-full object-cover"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Contenido -->
+    <div>
+      <h2
+        class="text-xl font-light leading-6 sm:text-2xl sm:leading-8 md:text-2xl md:leading-8 xl:text-3xl xl:leading-10"
+      >
+        <strong class="block font-semibold">
+          Una nueva forma de rematar
+        </strong>
+        que el mercado ya adoptó.
+      </h2>
+
+      <p
+        class="mt-4 text-sm font-light leading-5 sm:text-base md:text-sm xl:text-base"
+      >
+        El sistema de remates online de SYS4 es una plataforma propia para
+        subastas de hacienda en vivo por internet. Permite subastar invernada,
+        cría, faena y exportación desde cualquier punto del país o del mundo.
+      </p>
+
+      <p
+        class="mt-3 text-sm font-light leading-5 sm:text-base md:text-sm xl:text-base"
+      >
+        El martillero opera desde su propia oficina. Los compradores ofertan
+        desde donde estén.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PASOS ===================== -->
+<section class="bg-primary-light px-6 py-16 md:px-12 lg:px-20">
+  <div class="mx-auto max-w-2xl">
+    <h2 class="text-center text-2xl leading-9 font-light md:text-4xl">
+      Cuatro pasos para hacer
+      <strong class="block font-semibold">tu próximo remate online.</strong>
+    </h2>
+
+    <div class="mt-10 overflow-hidden rounded-2xl">
+      <div class="grid grid-cols-1 sm:grid-cols-2">
+        {
+          steps.map((step, index) => (
+            <div
+              class:list={[
+                "relative flex min-h-[340px] flex-col bg-secondary px-12 py-8",
+
+                index === 0 &&
+                  "sm:rounded-tl-2xl md:rounded-tl-4xl md:rounded-tr-4xl md:rounded-bl-4xl",
+
+                index === 1 &&
+                  "sm:rounded-tr-2xl md:rounded-tl-4xl md:rounded-tr-4xl md:rounded-br-4xl",
+
+                index === 2 &&
+                  "sm:rounded-bl-2xl md:rounded-bl-4xl md:rounded-br-4xl md:rounded-tl-4xl",
+
+                index === 3 &&
+                  "sm:rounded-br-2xl md:rounded-bl-4xl md:rounded-br-4xl md:rounded-tr-4xl",
+
+                // Línea central
+                index === 0 &&
+                  "after:absolute after:bottom-0 after:right-0 after:h-px after:w-12 after:bg-white before:absolute before:bottom-0 before:right-0 before:h-12 before:w-px before:bg-white",
+
+                index === 1 &&
+                  "after:absolute after:bottom-0 after:left-0 after:h-px after:w-12 after:bg-white before:absolute before:bottom-0 before:left-0 before:h-12 before:w-px before:bg-white",
+
+                index === 2 &&
+                  "after:absolute after:top-0 after:right-0 after:h-px after:w-12 after:bg-white before:absolute before:top-0 before:right-0 before:h-12 before:w-px before:bg-white",
+
+                index === 3 &&
+                  "after:absolute after:top-0 after:left-0 after:h-px after:w-12 after:bg-white before:absolute before:top-0 before:left-0 before:h-12 before:w-px before:bg-white",
+              ]}
+            >
+              <span class="text-4xl font-light text-white">{step.number}</span>
+
+              <div class="mt-16">
+                <h3 class="flex h-16 items-end text-3xl font-semibold leading-8 text-white">
+                  {step.title}
+                </h3>
+
+                <p class="mt-3 text-sm font-light leading-5 text-white">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="bg-white px-6 py-16 md:px-12 lg:px-20">
+  <div class="mx-auto grid max-w-3xl gap-x-10 gap-y-10 sm:grid-cols-2">
+    {
+      features.map((feature) => (
+        <div>
+            <div class="relative flex h-16 w-16 items-center justify-center">
+                <img
+                    src="/icons/Capa.svg"
+                    alt=""
+                    class="h-18 w-18"
+                />
+
+                <!-- Imagen centrada encima -->
+                    <img
+                        src={feature.icon}
+                        alt=""
+                        class="absolute left-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2"
+                    />
+              </div>
+          <h3 class="mt-4 text-3xl font-semibold">
+            {feature.title}
+          </h3>
+          <p class="mt-2 text-sm leading-5 font-light">
+            {feature.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>

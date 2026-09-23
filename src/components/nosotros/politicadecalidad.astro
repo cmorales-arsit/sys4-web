@@ -1,0 +1,114 @@
+---
+interface Value {
+  title: string;
+  description: string;
+  icon: string;
+  side: string;
+}
+
+const values: Value[] = [
+  {
+    title: "Desarrollo sostenible",
+    description:
+      "Crecemos con un ritmo cuidado: cada decisión apunta a consolidar nuestra presencia en el mercado regional con servicios y productos que generen valor real para las organizaciones que confían en nosotros.",
+    icon: "/icons/25.svg",
+    side: "left",
+  },
+  {
+    title: "Tecnología que hace la diferencia",
+    description:
+      "Desarrollamos software con herramientas modernas y competitivas. Nos preocupamos porque cada cliente use la solución que funcione, que exceda y que cumpla con sus compromisos.",
+      icon: "/icons/26.svg",
+    side: "right",
+  },
+  {
+    title: "Procesos ágiles y mejora continua",
+    description:
+      "Trabajamos con metodologías que nos permiten responder rápido a cambios y hacerlo de manera consistente. La agilidad no es velocidad por sí sola: es capacidad de adaptarse sin perder el control.",
+      icon: "/icons/27.svg",
+    side: "left",
+  },
+  {
+    title: "Equipo en crecimiento permanente",
+    description:
+      "Invertimos en las personas que forman parte de SYS4: formación continua y una carrera profesional con beneficios reales — son parte de cómo entendemos el trabajo bien hecho.",
+      icon: "/icons/28.svg",
+    side: "right",
+  },
+  {
+    title: "Soporte especializado",
+    description:
+      "Nuestros sistemas funcionan porque hay un equipo detrás que los sostiene: si aparece un problema, no queda a mitad de camino. El compromiso que asumimos con cada cliente empieza desde el primer día.",
+      icon: "/icons/29.svg",
+    side: "left",
+  },
+];
+---
+
+<!-- ===================== SECCIÓN 1: HERO + BANNER DE CALIDAD ===================== -->
+<section class="w-full">
+  <img
+    src="/images/nosotros/politicas/Banner.png"
+    alt="Equipo SYS"
+    class="h-[220px] w-full object-cover md:h-full mt-18"
+    loading="lazy"
+  />
+
+  <div class="bg-primary px-6 py-8 md:px-12 lg:px-20">
+    <div class="mx-auto flex max-w-5xl flex-col gap-4 md:flex-row md:items-center md:justify-center md:gap-6">
+      <h2 class="text-xl md:me-30 font-semibold md:leading-10 text-white md:max-w-sm md:text-4xl">
+        La calidad es nuestra forma de trabajar.
+      </h2>
+  
+      <p class="text-sm font-light leading-5 text-white md:max-w-sm">
+        En SYS4 la calidad está presente en cada etapa: en cómo desarrollamos, cómo implementamos y cómo acompañamos a cada cliente a lo largo del tiempo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECCIÓN 2: VALORES EN ZIGZAG ===================== -->
+<section class="mb-0 bg-white py-16">
+    <h2 class="mx-auto max-w-md px-6 text-center text-2xl font-semibold leading-8 md:text-3xl">
+      Lo que guía cada decisión que tomamos
+      <strong class="block font-semibold text-secondary">como empresa.</strong>
+    </h2>
+  
+    <div class="mt-12 flex flex-col gap-3">
+      {
+        values.map((value) => (
+          <div class="bg-primary-light px-6 py-8 md:px-12 lg:px-20">
+            <div
+              class:list={[
+                "mx-auto flex max-w-5xl",
+                value.side === "left" ? "justify-start" : "justify-end",
+              ]}
+            >
+              <div class="flex max-w-md flex-row items-start gap-5">
+                <!-- Ícono -->
+                <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-secondary">
+                    <img
+                        src={value.icon}
+                        alt=""
+                        class="h-7 w-7 "
+                        loading="lazy"
+                    />
+                </div>
+  
+                <!-- Textos -->
+                <div class="flex flex-col">
+                  <h3 class="text-3xl font-semibold ">
+                    {value.title}
+                  </h3>
+  
+                  <p class="mt-2 text-sm leading-5 font-light">
+                    {value.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>

@@ -1,0 +1,76 @@
+---
+import NosotrosForm from "../components/NosotrosForm.astro";
+---
+
+
+<section class="w-full font-sans">
+	<!-- BANNER SUPERIOR -->
+	<div class="relative min-h-[420px] w-full overflow-hidden bg-slate-900">
+
+		<!-- Imagen de fondo -->
+		<img
+			src="/images/trabajaconnosotros/Banner.png"
+			alt="Equipo de trabajo"
+			class="
+				absolute top-0
+				h-full w-auto max-w-none
+			"
+		/>
+	
+		<!-- Contenido -->
+		<div
+			class="
+				relative mx-auto flex w-full max-w-6xl
+				min-h-[420px]
+				items-center
+				px-8
+				sm:min-h-[500px] sm:px-12
+				md:px-16
+				lg:px-6
+			"
+		>
+			<div
+				class="
+					w-full
+					max-w-[320px]
+					min-[640px]:max-w-[480px]
+					min-[768px]:max-w-[520px]
+					min-[1024px]:max-w-[560px]
+					min-[1280px]:max-w-[450px]
+				"
+			>
+	
+				<!-- Título -->
+				<h1
+					class="
+						font-semibold tracking-tight text-white
+						text-3xl leading-8 text-left
+						min-[640px]:text-4xl min-[640px]:leading-tight
+						min-[768px]:text-4xl min-[768px]:leading-tight
+						min-[1280px]:text-5xl min-[1280px]:leading-none
+					"
+				>
+					Construimos sistemas para ordenar organizaciones. Si eso te mueve, sumate.
+				</h1>
+	
+				<!-- Subtítulo -->
+				<p
+					class="
+						mt-6 max-w-md
+						text-sm font-normal leading-4 text-gray-100
+						md:leading-5
+						min-[640px]:text-base
+					"
+				>
+					Somos un equipo que trabaja con criterio, método y compromiso. Si querés sumarte, contanos quién sos.
+				</p>
+	
+			</div>
+		</div>
+	
+	</div>
+  
+	<!-- FORMULARIO INFERIOR -->
+	<NosotrosForm/>
+	
+  </section>

@@ -1,0 +1,108 @@
+<footer class={`w-full px-4 py-10 sm:px-6 `}>
+    <div class="mx-auto w-full max-w-5xl">
+        <!-- Formulario -->
+        <div class="w-full rounded-sm bg-primary px-5 py-8 sm:px-10 md:px-12">
+            <!-- Título -->
+            <slot name="titulo" />
+
+            <slot name="descripcion" />
+
+            <form class="flex flex-col gap-2">
+                <!-- Nombre -->
+                <input
+                    type="text"
+                    placeholder="Nombre y apellido"
+                    class="h-9 w-full rounded bg-white px-3 text-sm  outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
+                />
+
+                <!-- Empresa / Email -->
+                <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    <input
+                        type="text"
+                        placeholder="Empresa"
+                        class="h-9 w-full rounded bg-white px-3 text-sm outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
+                    />
+
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        class="h-9 w-full rounded bg-white px-3 text-sm outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
+                    />
+                </div>
+
+                <!-- Teléfono / Solución -->
+                <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    <input
+                        type="tel"
+                        placeholder="Teléfono"
+                        class="h-9 w-full rounded bg-white px-3 text-sm outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
+                    />
+
+                    <select
+                        class="h-9 w-full rounded bg-white px-3 text-sm  outline-none focus:ring-2 focus:ring-secondary"
+                        aria-label="¿Qué solución te interesa?"
+                    >
+                        <option value="" selected disabled>
+                            ¿Qué solución te interesa?
+                        </option>
+                        <option value="1">ERP SYS4</option>
+                        <option value="2">MES SYS4</option>
+                        <option value="3">Oracle Netsuite</option>
+                        <option value="4">Oracle JD Edwards</option>
+                        <option value="5">Consultoría</option>
+                        <option value="6">No sé todavía</option>
+                    </select>
+                </div>
+
+                <!-- ¿Cómo podemos ayudarte? -->
+                <textarea
+                    placeholder="¿Cómo podemos ayudarte?"
+                    rows="4"
+                    class="w-full resize-none rounded bg-white px-3 py-2 text-sm outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
+                ></textarea>
+
+                <!-- Botón -->
+                <button
+                    type="submit"
+                    class="mt-1 h-9 w-full rounded bg-secondary text-sm font-medium text-white transition"
+                >
+                    Quiero que me contacten
+                </button>
+            </form>
+
+            <!-- Redes sociales -->
+            <div class="mt-6 flex justify-center gap-3 text-white">
+                <!-- Facebook -->
+                <a
+                    href="#"
+                    aria-label="Facebook"
+                    class="transition hover:opacity-70"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="h-7 w-7"
+                    >
+                        <path
+                            d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.002 10.125 11.927v-8.432H7.078v-3.422h3.047V9.534c0-3.027 1.792-4.7 4.533-4.7 1.313 0 2.686.236 2.686.236v2.973h-1.514c-1.491 0-1.955.93-1.955 1.885v2.218h3.328l-.532 3.422h-2.796V24C19.612 23.075 24 18.092 24 12.073z"
+                        ></path>
+                    </svg>
+                </a>
+
+                <!-- Instagram -->
+                <a
+                    href="https://www.instagram.com/sys4_software/"
+                    aria-label="Instagram"
+                    class="flex h-7 w-7 items-center justify-center rounded-full bg-white text-primary transition hover:opacity-70"
+                >
+                    <img
+                        src="/icons/Instagram.svg"
+                        alt="Instagram"
+                        class="h-4 w-4"
+                    />
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

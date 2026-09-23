@@ -1,0 +1,350 @@
+---
+interface Milestone {
+  year: string;
+  title: string;
+  description: string;
+  side: "left" | "right";
+  isLogo?: boolean;
+}
+
+const milestones: Milestone[] = [
+  {
+    year: "2006",
+    title: "Nace este proyecto.",
+    description:
+      "Desde el primer día, el foco estuvo en implementar sistemas que realmente funcionen en organizaciones reales.",
+    side: "left",
+  },
+  {
+    year: "2017",
+    title: "Adoptamos el nombre Soft Selección.",
+    description:
+      "Damos inicio a nuestra marca comercial. Lanzamos el ERP cloud propio para pymes, junto con el sistema de subastas de hacienda en vivo por internet.",
+    side: "right",
+  },
+  {
+    year: "2017",
+    title: "Certificación ISO 9001.",
+    description:
+      "La calidad deja de ser una promesa y se convierte en un proceso certificado. Todos los procesos operativos y de producción bajo norma internacional.",
+    side: "left",
+  },
+  {
+    year: "Hoy",
+    title: "Nace SYS4.",
+    description:
+      "Nueva identidad. Mismo equipo. Mismo compromiso. Una forma más clara de decir lo que siempre hicimos.",
+    side: "right",
+    isLogo: true,
+  },
+];
+
+interface Pillar {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const pillars: Pillar[] = [
+  {
+    title: "Experiencia",
+    description:
+      "Años implementando sistemas en industrias reales. Conocemos los procesos, los tiempos y los desafíos de cada sector.",
+    icon: "/icons/23.svg",
+  },
+  {
+    title: "Calidad",
+    description:
+      "Procesos certificados bajo norma ISO 9001:2015. No como distinción sino como forma de trabajar.",
+    icon: "/icons/24.svg",
+  },
+  {
+    title: "Acompañamiento",
+    description:
+      "No entregamos un sistema y nos retiramos. Estamos presentes antes, durante y después de cada implementación.",
+    icon: "/icons/12.svg",
+  },
+];
+---
+
+<script>
+  const video = document.querySelector<HTMLVideoElement>("#hero-video");
+  const playButton = document.querySelector<HTMLButtonElement>("#play-button");
+
+  if (video && playButton) {
+    playButton.addEventListener("click", async () => {
+      video.controls = true;
+      playButton.classList.add("hidden");
+
+      try {
+        await video.play();
+      } catch (error) {
+        console.error("No se pudo reproducir el video:", error);
+      }
+    });
+
+    video.addEventListener("ended", () => {
+      video.controls = false;
+      video.currentTime = 0;
+      video.load();
+
+      playButton.classList.remove("hidden");
+    });
+  }
+</script>
+
+<!-- ===================== HERO ===================== -->
+<section class="relative h-[600px] w-full overflow-hidden md:h-[630px]">
+  <video
+    id="hero-video"
+    class="h-full w-full object-cover"
+    poster="/images/nosotros/presentacion/Banner.png"
+    preload="metadata"
+  >
+    <source src="/films/Caminata.mp4" type="video/mp4" />
+    Tu navegador no soporta la reproducción de video.
+  </video>
+
+  <button
+    id="play-button"
+    type="button"
+    class="play-button absolute left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 p-3"
+    aria-label="Reproducir video"
+  >
+    <img
+      src="/icons/Play.svg"
+      alt="Reproducir video"
+      class="block h-12 w-12"
+    />
+  </button>
+
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 mb-5 px-6 pb-6 text-center md:ms-14 md:px-12 md:text-left lg:px-20">
+    <p class="mx-auto max-w-md text-sm leading-5 text-white font-light md:mx-0 md:text-md">
+        SYS4 nace de años de experiencia implementando sistemas para empresas e industrias. Nueva identidad, mismo compromiso.
+    </p>
+</div>
+</section>
+
+<!-- ===================== TEXTO + FOTO ===================== -->
+<section class="bg-white px-6 pt-6 pb-6 md:px-9 md:pb-0 lg:px-10">
+  <div class="mx-auto grid max-w-8xl items-center gap-14 md:grid-cols-[0.7fr_0.5fr] md:gap-1">
+
+    <div class="p-0 md:p-20 flex flex-col justify-content">
+      <h2 class="text-2xl leading-8 font-light md:text-3xl">
+        Una empresa que creció
+        <strong class="block font-semibold text-secondary">
+          ordenando organizaciones.
+        </strong>
+      </h2>
+
+      <p class="mt-5 text-sm font-light leading-4">
+        Somos un equipo de desarrollo, implementación y consultoría en sistemas
+        con base en Río Cuarto, Córdoba. Trabajamos con empresas e industrias de
+        todo el país, acompañando cada etapa de su crecimiento con tecnología,
+        criterio y presencia real.
+      </p>
+
+      <p class="mt-4 text-sm font-light leading-4">
+        Detrás de SYS4 hay años de experiencia, clientes que confían su operación
+        diaria en nuestros sistemas y un equipo que no entrega un software y se retira.
+      </p>
+    </div>
+
+    <div class="overflow-hidden">
+      <img
+        src="/images/nosotros/presentacion/Img-1.png"
+        alt="Equipo SYS4 en la oficina"
+        class="h-[300px] w-full object-cover grayscale"
+        loading="lazy"
+      />
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== COLLAGE DE FOTOS ===================== -->
+<section class="bg-white px-6 pb-16 md:px-9 lg:px-10">
+  <div class="mx-auto grid max-w-8xl grid-cols-1 gap-6 md:grid-cols-3 md:grid-rows-2">
+    <img
+      src="/images/nosotros/presentacion/Img-2.png"
+      alt="Miembro del equipo SYS4"
+      class="h-full w-full object-cover grayscale md:row-span-2"
+      loading="lazy"
+    />
+
+    <img
+      src="/images/nosotros/presentacion/Img-3.png"
+      alt="Equipo SYS4"
+      class="h-full w-full object-cover grayscale"
+      loading="lazy"
+    />
+
+    <img
+      src="/images/nosotros/presentacion/Img-4.png"
+      alt="Equipo SYS4"
+      class="h-full w-full object-cover grayscale"
+      loading="lazy"
+    />
+
+    <img
+      src="/images/nosotros/presentacion/Img-5.png"
+      alt="Equipo SYS4"
+      class="h-full w-full object-cover grayscale"
+      loading="lazy"
+    />
+
+    <img
+      src="/images/nosotros/presentacion/Img-6.png"
+      alt="Equipo SYS4"
+      class="h-full w-full object-cover grayscale"
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<!-- ===================== BANNER DIVISOR ===================== -->
+<section class="bg-primary px-6 py-6 text-center md:px-12">
+  <div class="flex flex-col items-center">
+    <img
+      src="/logo.png"
+      alt="Logo SYS4"
+      class="h-auto w-[100px] brightness-0 invert"
+      loading="lazy"
+    />
+
+    <p class="mt-3 text-lg font-light text-white md:text-4xl">
+      Un camino construido <br /> con trabajo.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== TIMELINE ===================== -->
+<section class="overflow-hidden bg-white px-6 py-16 md:px-12 lg:px-20">
+  <div class="mx-auto max-w-lg">
+    <div class="grid grid-cols-1 gap-x-2 gap-y-12 md:grid-cols-2">
+      {
+        milestones.map((item, index) => (
+          <div class="w-full">
+            <div class="flex items-center gap-3">
+
+              {index === 0 && (
+                <span class="h-3 w-3 shrink-0 rounded-full bg-secondary"></span>
+              )}
+
+              {index === 0 && (
+                <>
+                  <span class="shrink-0 text-base font-semibold uppercase tracking-wide text-secondary md:text-sm">
+                    {item.year}
+                  </span>
+
+                  <div class="h-px flex-1 bg-secondary"></div>
+                </>
+              )}
+
+              {index === 1 && (
+                <div class="relative flex w-full items-center">
+                  <span class="shrink-0 text-base font-semibold uppercase tracking-wide text-secondary md:text-sm">
+                    {item.year}
+                  </span>
+
+                  <div class="ml-3 h-px flex-1 bg-secondary"></div>
+
+                  <div class="absolute left-full top-1/2 hidden h-px w-screen bg-secondary md:block"></div>
+                </div>
+              )}
+
+              {index === 2 && (
+                <div class="relative flex w-full items-center">
+                  <div class="absolute right-full top-1/2 hidden h-px w-screen bg-secondary md:block"></div>
+
+                  <span class="shrink-0 text-base font-semibold uppercase tracking-wide text-secondary md:text-sm">
+                    {item.year}
+                  </span>
+
+                  <div class="ml-3 h-px flex-1 bg-secondary"></div>
+                </div>
+              )}
+
+              {index === milestones.length - 1 && (
+                <>
+                  <span class="shrink-0 text-base font-semibold uppercase tracking-wide text-secondary md:text-sm">
+                    {item.year}
+                  </span>
+
+                  <span class="h-3 w-3 shrink-0 rounded-full bg-secondary"></span>
+                </>
+              )}
+
+            </div>
+
+            <div class="mt-14 text-left">
+              <div class="mb-4 flex h-[60px] items-end">
+                {item.isLogo ? (
+                  <img
+                    src="/logo.png"
+                    alt="Equipo SYS4"
+                    class="h-auto w-[125px] object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <h3 class="text-2xl font-semibold leading-8 md:max-w-[180px]">
+                    {item.title}
+                  </h3>
+                )}
+              </div>
+
+              <p class="text-base font-light leading-5 md:text-sm">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PILARES ===================== -->
+<section class="bg-primary-light px-6 py-16 md:px-12 lg:px-18">
+  <div class="mx-auto max-w-8xl">
+    <h2 class="text-center text-2xl font-light leading-8 md:text-3xl">
+      <strong class="font-semibold">Tres pilares</strong> que sostienen cada <br> proyecto que encaramos.
+    </h2>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-3">
+      {
+        pillars.map((pillar) => (
+          <div class="bg-white px-12 py-12 text-left">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary">
+              <img
+                src={pillar.icon}
+                alt=""
+                class="h-6 w-6 object-cover grayscale"
+                loading="lazy"
+              />
+
+            </div>
+
+            <h3 class="mt-12 text-2xl font-semibold">
+              {pillar.title}
+            </h3>
+
+            <p class="text-base font-light leading-4 md:text-md">
+              {pillar.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOTO FULL-WIDTH ===================== -->
+<section class="w-full mb-12">
+  <img
+    src="/images/nosotros/presentacion/Banner-2.png"
+    alt=""
+    class="h-[320px] w-full object-cover md:h-[420px] lg:h-[550px]"
+    loading="lazy"
+  />
+</section>

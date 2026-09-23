@@ -1,0 +1,169 @@
+---
+import { navItems } from "./navItems";
+---
+
+<details class="relative">
+    <summary
+        class="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md bg-primary text-white"
+        aria-label="Abrir menú"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+        >
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
+    </summary>
+
+    <nav
+        class="absolute right-0 top-11 z-50 flex w-52 flex-col overflow-hidden rounded-md bg-primary shadow-lg"
+    >
+        {
+            navItems.map((item, index) =>
+                item.nombre === "Soluciones" ? (
+                    <details>
+                        <summary class="cursor-pointer list-none px-5 py-3 text-sm font-medium text-white hover:bg-primary-soft">
+                            {item.nombre}
+                        </summary>
+
+                        <div class="bg-primary-soft">
+                            <a
+                                href="/soluciones/erp"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                ERP
+                            </a>
+
+                            <a
+                                href="/soluciones/mes"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                MES
+                            </a>
+                        </div>
+                    </details>
+                ) : item.nombre === "Industrias" ? (
+                    <details>
+                        <summary class="cursor-pointer list-none px-5 py-3 text-sm font-medium text-white hover:bg-primary-soft">
+                            {item.nombre}
+                        </summary>
+
+                        <div class="bg-primary-soft">
+                            <a
+                                href="/industrias/constructoras"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Constructoras
+                            </a>
+
+                            <a
+                                href="/industrias/comercializadoras"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Comercializadoras
+                            </a>
+
+                            <a
+                                href="/industrias/manufacturas"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Manufacturas
+                            </a>
+
+                            <a
+                                href="/industrias/contadores"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Contadores
+                            </a>
+
+                            <a
+                                href="/industrias/servicios"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Servicios
+                            </a>
+
+                            <a
+                                href="/industrias/ong"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                ONG
+                            </a>
+                        </div>
+                    </details>
+                ) : item.nombre === "Nosotros" ? (
+                    <details>
+                        <summary class="cursor-pointer list-none px-5 py-3 text-sm font-medium text-white hover:bg-primary-soft">
+                            {item.nombre}
+                        </summary>
+
+                        <div class="bg-primary-soft">
+                            <a
+                                href="/nosotros/presentacion"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Presentación
+                            </a>
+
+                            <a
+                                href="/nosotros/politicadecalidad"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Política de calidad
+                            </a>
+                        </div>
+                    </details>
+                ) : item.nombre === "Contacto" ? (
+                    <details>
+                        <summary class="cursor-pointer list-none px-5 py-3 text-sm font-medium text-white hover:bg-primary-soft">
+                            {item.nombre}
+                        </summary>
+
+                        <div class="bg-primary-soft">
+                            <a
+                                href="/contacto"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Contacto
+                            </a>
+
+                            <a
+                                href="/remates"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Remates
+                            </a>
+
+                            <a
+                                href="/trabajaconnosotros"
+                                class="block px-8 py-3 text-sm font-medium text-white hover:bg-primary"
+                            >
+                                Trabajá con nosotros
+                            </a>
+                        </div>
+                    </details>
+                ) : (
+                    <a
+                        href={item.href}
+                        class:list={[
+                            "px-5 py-3 text-sm font-medium text-white hover:bg-primary-soft",
+                            index === 0 &&
+                                "bg-secondary hover:bg-secondary",
+                        ]}
+                    >
+                        {item.nombre}
+                    </a>
+                ),
+            )
+        }
+    </nav>
+</details>

@@ -1,27 +1,61 @@
 ---
-
 interface Props {
     backGround?: string;
 }
 
 const { backGround = "transparent" } = Astro.props;
+
+interface Solucion {
+    value: string;
+    label: string;
+}
+
+const soluciones: Solucion[] = [
+    {
+        value: "erp",
+        label: "ERP SYS4",
+    },
+    {
+        value: "mes",
+        label: "MES SYS4",
+    },
+    {
+        value: "netsuite",
+        label: "Oracle NetSuite",
+    },
+    {
+        value: "jd-edwards",
+        label: "Oracle JD Edwards",
+    },
+    {
+        value: "consultoria",
+        label: "Consultoría",
+    },
+    {
+        value: "no-se",
+        label: "No sé todavía",
+    },
+];
 ---
 
 <footer class={`w-full px-4 py-10 sm:px-6 ${backGround}`}>
     <div class="mx-auto w-full max-w-2xl">
         <!-- Formulario -->
         <div class="w-full rounded-sm bg-primary px-5 py-8 sm:px-10 md:px-12">
-            <!-- Título -->
-            <slot name="titulo" />
+            <div class="m-auto max-w-sm">
+                <!-- Título -->
+                <slot name="titulo" />
+            </div>
 
             <slot name="descripcion" />
+            
 
             <form class="flex flex-col gap-2">
                 <!-- Nombre -->
                 <input
                     type="text"
                     placeholder="Nombre y apellido"
-                    class="h-9 w-full rounded bg-white px-3 text-sm text-gray-700 outline-none placeholder:text-gray-600 focus:ring-2 focus:ring-secondary"
+                    class="h-9 w-full rounded bg-white px-3 text-sm outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
                 />
 
                 <!-- Empresa / Email -->
@@ -29,13 +63,13 @@ const { backGround = "transparent" } = Astro.props;
                     <input
                         type="text"
                         placeholder="Empresa"
-                        class="h-9 w-full rounded bg-white px-3 text-sm text-gray-700 outline-none placeholder:text-gray-600 focus:ring-2 focus:ring-secondary"
+                        class="h-9 w-full rounded bg-white px-3 text-sm outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
                     />
 
                     <input
                         type="email"
                         placeholder="Email"
-                        class="h-9 w-full rounded bg-white px-3 text-sm text-gray-700 outline-none placeholder:text-gray-600 focus:ring-2 focus:ring-secondary"
+                        class="h-9 w-full rounded bg-white px-3 text-sm outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
                     />
                 </div>
 
@@ -44,20 +78,31 @@ const { backGround = "transparent" } = Astro.props;
                     <input
                         type="tel"
                         placeholder="Teléfono"
-                        class="h-9 w-full rounded bg-white px-3 text-sm text-gray-700 outline-none placeholder:text-gray-600 focus:ring-2 focus:ring-secondary"
+                        class="h-9 w-full rounded bg-white px-3 text-sm outline-none placeholder:text-black focus:ring-2 focus:ring-secondary"
                     />
 
-                    <input
-                        type="text"
-                        placeholder="¿Qué solución te interesa?"
-                        class="h-9 w-full rounded bg-white px-3 text-sm text-gray-700 outline-none placeholder:text-gray-600 focus:ring-2 focus:ring-secondary"
-                    />
+                    <select
+                        class="h-9 w-full rounded bg-white px-3 text-sm outline-none focus:ring-2 focus:ring-secondary"
+                        name="solucion"
+                    >
+                        <option value="" disabled selected>
+                            ¿Qué solución te interesa?
+                        </option>
+
+                        {
+                            soluciones.map((solucion) => (
+                                <option value={solucion.value}>
+                                    {solucion.label}
+                                </option>
+                            ))
+                        }
+                    </select>
                 </div>
 
                 <!-- Botón -->
                 <button
                     type="submit"
-                    class="mt-1 h-9 w-full rounded bg-secondary text-sm font-medium text-white transition "
+                    class="mt-1 h-9 w-full cursor-pointer rounded bg-secondary text-sm font-medium text-white transition"
                 >
                     Quiero que me contacten
                 </button>
@@ -89,7 +134,11 @@ const { backGround = "transparent" } = Astro.props;
                     aria-label="Instagram"
                     class="flex h-7 w-7 items-center justify-center rounded-full bg-white text-primary transition hover:opacity-70"
                 >
-                    <img src="/icons/Instagram.svg" alt="Instagram" class="h-4 w-4" />
+                    <img
+                        src="/icons/Instagram.svg"
+                        alt="Instagram"
+                        class="h-4 w-4"
+                    />
                 </a>
             </div>
         </div>

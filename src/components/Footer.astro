@@ -1,3 +1,118 @@
+---
+interface LinkItem {
+    nombre: string;
+    href: string;
+}
+
+interface FooterSection {
+    titulo: string;
+    links: LinkItem[];
+}
+
+interface SocialLink {
+    nombre: string;
+    href: string;
+    icono: string;
+}
+
+const soluciones: LinkItem[] = [
+    {
+        nombre: "ERP",
+        href: "/soluciones/erp",
+    },
+    {
+        nombre: "MES",
+        href: "/soluciones/mes",
+    },
+    {
+        nombre: "Oracle by SYS4",
+        href: "#",
+    },
+];
+
+const industrias: LinkItem[] = [
+    {
+        nombre: "Constructoras",
+        href: "/industrias/constructoras",
+    },
+    {
+        nombre: "Manufacturas",
+        href: "/industrias/manufacturas",
+    },
+    {
+        nombre: "Servicios",
+        href: "/industrias/servicios",
+    },
+    {
+        nombre: "Comercializadoras",
+        href: "/industrias/comercializadoras",
+    },
+    {
+        nombre: "Contadores",
+        href: "/industrias/contadores",
+    },
+    {
+        nombre: "ONG",
+        href: "/industrias/ong",
+    },
+];
+
+const consultoria: LinkItem[] = [
+    {
+        nombre: "SYS4 Consulting",
+        href: "/consultoria",
+    },
+];
+
+const nosotros: LinkItem[] = [
+    {
+        nombre: "Presentación SYS4",
+        href: "/nosotros/presentacion",
+    },
+    {
+        nombre: "Políticas de Calidad",
+        href: "/nosotros/politicadecalidad",
+    },
+];
+
+const otrosServicios: LinkItem[] = [
+    {
+        nombre: "Remates Online",
+        href: "/remates",
+    },
+];
+
+const contacto: LinkItem[] = [
+    {
+        nombre: "Trabajá con nosotros",
+        href: "/trabajaconnosotros",
+    },
+];
+
+const redesSociales: SocialLink[] = [
+    {
+        nombre: "LinkedIn",
+        href: "#",
+        icono: "/icons/Linkedin.svg",
+    },
+    {
+        nombre: "Instagram",
+        href: "https://www.instagram.com/sys4_software/",
+        icono: "/icons/Instagram.svg",
+    },
+    {
+        nombre: "YouTube",
+        href: "#",
+        icono: "/icons/Youtube.svg",
+    },
+    {
+        nombre: "WhatsApp",
+        href: "#",
+        icono: "/icons/Whatsapp.svg",
+    },
+];
+---
+
 <footer class="w-full bg-primary text-white">
     <div class="mx-auto max-w-5xl px-6 pt-28 pb-12">
         <!-- Contenido principal -->
@@ -14,8 +129,8 @@
                     />
                 </a>
 
-                <p class="mt-3 text-md leading-4 text-white/80">
-                    Orden y sistema.
+                <p class="mt-3 text-md leading-4 font-light text-white">
+                    <strong>Orden y sistema.</strong>
                     <br />
                     Descripción
                 </p>
@@ -24,57 +139,21 @@
                 <div
                     class="mt-12 flex items-center justify-center gap-2 lg:justify-start"
                 >
-                    <!-- LinkedIn -->
-                    <a
-                        href="#"
-                        aria-label="LinkedIn"
-                        class="flex h-7 w-7 items-center justify-center rounded-full bg-white transition hover:bg-secondary"
-                    >
-                        <img
-                            src="/icons/Linkedin.svg"
-                            alt="LinkedIn"
-                            class="h-4 w-4"
-                        />
-                    </a>
-
-                    <!-- Instagram -->
-                    <a
-                        href="https://www.instagram.com/sys4_software/"
-                        aria-label="Instagram"
-                        class="flex h-7 w-7 items-center justify-center rounded-full bg-white transition hover:bg-secondary"
-                    >
-                        <img
-                            src="/icons/Instagram.svg"
-                            alt="Instagram"
-                            class="h-4 w-4"
-                        />
-                    </a>
-
-                    <!-- YouTube -->
-                    <a
-                        href="#"
-                        aria-label="YouTube"
-                        class="flex h-7 w-7 items-center justify-center rounded-full bg-white transition hover:bg-secondary"
-                    >
-                        <img
-                            src="/icons/Youtube.svg"
-                            alt="YouTube"
-                            class="h-4 w-4"
-                        />
-                    </a>
-
-                    <!-- WhatsApp -->
-                    <a
-                        href="#"
-                        aria-label="WhatsApp"
-                        class="flex h-7 w-7 items-center justify-center rounded-full bg-white transition hover:bg-secondary"
-                    >
-                        <img
-                            src="/icons/Whatsapp.svg"
-                            alt="WhatsApp"
-                            class="h-4 w-4"
-                        />
-                    </a>
+                    {
+                        redesSociales.map((red) => (
+                            <a
+                                href={red.href}
+                                aria-label={red.nombre}
+                                class="flex h-7 w-7 items-center justify-center rounded-full bg-white transition hover:bg-secondary"
+                            >
+                                <img
+                                    src={red.icono}
+                                    alt={red.nombre}
+                                    class="h-4 w-4"
+                                />
+                            </a>
+                        ))
+                    }
                 </div>
             </div>
 
@@ -82,20 +161,16 @@
             <div class="lg:col-span-1">
                 <h3 class="text-sm font-semibold">Soluciones</h3>
 
-                <ul class="mt-4 space-y-3 text-sm text-white/75">
-                    <li>
-                        <a href="/soluciones/erp" class="hover:text-white">ERP</a>
-                    </li>
-
-                    <li>
-                        <a href="/soluciones/mes" class="hover:text-white">MES</a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="hover:text-white">
-                            Oracle by SYS4
-                        </a>
-                    </li>
+                <ul class="mt-4 space-y-3 text-sm text-white">
+                    {
+                        soluciones.map((item) => (
+                            <li>
+                                <a href={item.href} class="text-white font-light">
+                                    {item.nombre}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
 
@@ -103,32 +178,16 @@
             <div class="lg:col-span-1">
                 <h3 class="text-sm font-semibold">Industrias</h3>
 
-                <ul class="mt-4 space-y-3 text-sm text-white/75">
-                    <li>
-                        <a href="/industrias/constructoras" class="hover:text-white"> Constructoras </a>
-                    </li>
-
-                    <li>
-                        <a href="/industrias/manufacturas" class="hover:text-white"> Manufacturas </a>
-                    </li>
-
-                    <li>
-                        <a href="/industrias/servicios" class="hover:text-white"> Servicios </a>
-                    </li>
-
-                    <li>
-                        <a href="/industrias/comercializadoras" class="hover:text-white">
-                            Comercializadoras
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/industrias/contadores" class="hover:text-white"> Contadores </a>
-                    </li>
-
-                    <li>
-                        <a href="/industrias/ong" class="hover:text-white"> ONG </a>
-                    </li>
+                <ul class="mt-4 space-y-3 text-sm text-white">
+                    {
+                        industrias.map((item) => (
+                            <li>
+                                <a href={item.href} class="text-white font-light">
+                                    {item.nombre}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
 
@@ -136,12 +195,16 @@
             <div class="lg:col-span-1">
                 <h3 class="text-sm font-semibold">Consultoría</h3>
 
-                <ul class="mt-4 space-y-3 text-sm text-white/75">
-                    <li>
-                        <a href="#" class="hover:text-white">
-                            SYS4 Consulting
-                        </a>
-                    </li>
+                <ul class="mt-4 space-y-3 text-sm text-white">
+                    {
+                        consultoria.map((item) => (
+                            <li>
+                                <a href={item.href} class="text-white font-light">
+                                    {item.nombre}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
 
@@ -149,29 +212,31 @@
             <div class="lg:col-span-1">
                 <h3 class="text-sm font-semibold">Nosotros</h3>
 
-                <ul class="mt-4 space-y-3 text-sm text-white/75">
-                    <li>
-                        <a href="#" class="hover:text-white">
-                            Presentación SYS4
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="hover:text-white">
-                            Políticas de Calidad
-                        </a>
-                    </li>
+                <ul class="mt-4 space-y-3 text-sm text-white">
+                    {
+                        nosotros.map((item) => (
+                            <li>
+                                <a href={item.href} class="text-white font-light">
+                                    {item.nombre}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
 
                 <!-- Otros Servicios -->
                 <h3 class="mt-8 text-sm font-semibold">Otros Servicios</h3>
 
-                <ul class="mt-4 space-y-3 text-sm text-white/75">
-                    <li>
-                        <a href="#" class="hover:text-white">
-                            Remates Online
-                        </a>
-                    </li>
+                <ul class="mt-4 space-y-3 text-sm text-white">
+                    {
+                        otrosServicios.map((item) => (
+                            <li>
+                                <a href={item.href} class="text-white font-light">
+                                    {item.nombre}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
 
@@ -179,12 +244,16 @@
             <div class="lg:col-span-1">
                 <h3 class="text-sm font-semibold">Contacto</h3>
 
-                <ul class="mt-4 space-y-3 text-sm text-white/75">
-                    <li>
-                        <a href="#contacto" class="hover:text-white">
-                            Trabajá con nosotros
-                        </a>
-                    </li>
+                <ul class="mt-4 space-y-3 text-sm text-white">
+                    {
+                        contacto.map((item) => (
+                            <li>
+                                <a href={item.href} class="text-white font-light">
+                                    {item.nombre}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
         </div>
@@ -194,46 +263,58 @@
             class="mt-12 flex flex-col items-center gap-5 text-sm text-white/80 md:flex-row md:items-start md:justify-start md:gap-8"
         >
             <!-- Ubicación -->
-            <div class="flex items-center gap-2">
-                <img src="/icons/Ubicacion.svg" alt="" class="h-4 w-4" />
+            <div class="flex items-center text-white font-light gap-2">
+                <img
+                    src="/icons/Ubicacion.svg"
+                    alt=""
+                    class="h-4 w-4"
+                />
 
-                <span> Roma 2296, Río Cuarto, Córdoba </span>
+                <span>Roma 2296, Río Cuarto, Córdoba</span>
             </div>
 
             <!-- Teléfono -->
             <a
                 href="tel:+543585747718"
-                class="flex items-center gap-2 hover:text-white"
+                class="flex items-center gap-2 font-light text-white"
             >
-                <img src="/icons/Telefono.svg" alt="" class="h-4 w-4" />
+                <img
+                    src="/icons/Telefono.svg"
+                    alt=""
+                    class="h-4 w-4"
+                />
 
-                <span> +54 9 3585 74-7718 </span>
+                <span>+54 9 3585 74-7718</span>
             </a>
 
             <!-- Email -->
             <a
                 href="mailto:ventas@sys4.com.ar"
-                class="flex items-center gap-2 hover:text-white"
+                class="flex items-center font-light gap-2 text-white"
             >
-                <img src="/icons/Email.svg" alt="" class="h-4 w-4" />
+                <img
+                    src="/icons/Email.svg"
+                    alt=""
+                    class="h-4 w-4"
+                />
 
-                <span> ventas@sys4.com.ar </span>
+                <span>ventas@sys4.com.ar</span>
             </a>
         </div>
 
         <!-- Línea separadora -->
         <div
-            class="mt-5 -mx-4 sm:-mx-6 md:-mx-10 lg:-mx-30 border-b border-white/30"
+            class="mt-5 -mx-4 border-b border-white/30 sm:-mx-6 md:-mx-10 lg:-mx-30"
         >
         </div>
 
         <!-- Copyright -->
         <div
-            class="mt-6 flex flex-col items-center gap-2 text-sm text-white/70 sm:flex-row sm:justify-between"
+            class="mt-6 flex flex-col font-light items-center gap-2 text-sm text-white sm:flex-row sm:justify-between"
         >
-            <span> © 2026 SYS4. Todos los derechos reservados. </span>
+            <span>© 2026 SYS4. Todos los derechos reservados.</span>
 
-            <span> Córdoba - Argentina </span>
+            <span>Córdoba - Argentina</span>
         </div>
     </div>
 </footer>

@@ -1,0 +1,167 @@
+---
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<section class="w-full">
+    <!-- ===================== PRINCIPAL ===================== -->
+    <section
+        class="relative flex min-h-[620px] w-full items-center overflow-hidden md:min-h-[680px]"
+    >
+        <!-- Imagen de fondo -->
+        <img
+            src="/images/contacto/Banner.png"
+            alt=""
+            class="absolute inset-0 -z-10 h-full w-full object-cover mt-14 md:mt-14"
+            style="object-position: 30% 40%;"
+        />
+
+        <!-- Contenido -->
+        <div
+            class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pt-32 sm:px-6 md:flex-row md:items-end md:gap-2 md:pt-22"
+        >
+            <div class="flex max-w-[650px] flex-col"></div>
+        </div>
+
+        <!-- Cuadrado -->
+        <div
+            class="absolute left-1/2 top-1/2 mt-8 grid
+           w-[90vw] max-w-[500px]
+           -translate-x-1/2 -translate-y-1/2
+           grid-cols-2 aspect-square
+           md:left-0 md:ms-30 md:translate-x-0"
+        >
+            <!-- Superior izquierda -->
+            <div
+                class="relative border-l border-t border-white bg-white
+               rounded-bl-4xl rounded-tr-4xl rounded-tl-4xl"
+            >
+            </div>
+
+            <!-- Superior derecha -->
+            <div
+                class="relative border-r border-t border-white bg-white
+               rounded-br-4xl rounded-tl-4xl rounded-tr-4xl"
+            >
+            </div>
+
+            <!-- Inferior izquierda -->
+            <div
+                class="relative border-l border-b border-white bg-white
+               rounded-tl-4xl rounded-br-4xl rounded-bl-4xl"
+            >
+            </div>
+
+            <!-- Inferior derecha -->
+            <div
+                class="relative border-r border-b border-white bg-white
+               rounded-tr-4xl rounded-bl-4xl rounded-br-4xl"
+            >
+            </div>
+
+            <!-- Texto -->
+            <div
+                class="absolute inset-0 flex flex-col items-center justify-between
+               px-8 py-14 text-center
+               sm:px-10 sm:py-16
+               md:px-12 md:py-20"
+            >
+                <h2
+                    class="w-full px-2 text-left text-3xl font-light leading-tight text-primary
+                   sm:text-4xl
+                   md:px-6 md:text-5xl"
+                >
+                    Queremos<br /> conocer<br />
+                    <strong class="font-semibold text-secondary">
+                        tu empresa.
+                    </strong>
+                </h2>
+
+                <p
+                    class="w-full max-w-sm px-2 text-left text-sm font-light leading-5 text-primary
+                   sm:text-base
+                   md:px-6"
+                >
+                    Contanos en qué etapa estás y qué desafíos tenés. Nuestro
+                    equipo analiza tu situación y te propone el camino más claro
+                    hacia el orden y el control de tu operación.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+<div class="bg-white px-6 py-12 md:px-12 lg:px-20">
+    <div
+        class="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16"
+    >
+        <!-- Texto -->
+        <div class="w-full lg:max-w-md">
+            <h2
+                class="text-xl font-light leading-tight text-primary md:text-3xl"
+            >
+                Escribinos y lo resolvemos
+                <span class="block font-semibold text-secondary">
+                    en 3 pasos
+                </span>
+            </h2>
+
+            <div class="mt-7 w-full space-y-5 text-md leading-5">
+                <div>
+                    <strong>1. Nos ponemos en contacto.</strong>
+                    <p class="font-light leading-5">
+                        Una asesora de SYS4 se comunica con vos dentro de
+                        las 24 horas hábiles.
+                    </p>
+                </div>
+
+                <div>
+                    <strong>2. Entendemos tu operación.</strong>
+                    <p class="font-light leading-5">
+                        Te hacemos las preguntas correctas para entender
+                        dónde estás parado y qué necesitás.
+                    </p>
+                </div>
+
+                <div>
+                    <strong>3. Te mostramos cómo podemos ayudarte.</strong>
+                    <p class="font-light leading-5">
+                        Sin compromiso, sin presión. Con información
+                        concreta sobre qué puede hacer SYS4 por tu empresa.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulario -->
+        <ContactForm />
+    </div>
+</div>
+
+    <!-- DATOS DE CONTACTO -->
+    <div class="bg-primary-light px-6 py-3">
+        <div
+            class="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 text-xs font-light sm:flex-row sm:gap-5"
+        >
+            <span class="flex items-center gap-2">
+                <img src="/icons/Ubicacion-black.svg" alt="" class="h-4 w-4" />
+                Roma 2296, Río Cuarto, Córdoba
+            </span>
+
+            <a
+                href="tel:+543585747718"
+                class="flex items-center gap-2 font-light"
+            >
+                <img src="/icons/Telefono-black.svg" alt="" class="h-4 w-4" />
+                +54 9 3585 74-7718
+            </a>
+
+            <a
+                href="mailto:ventas@sys4.com.ar"
+                class="flex items-center gap-2 font-light"
+            >
+                <img src="/icons/Email-black.svg" alt="" class="h-4 w-4" />
+                ventas@sys4.com.ar
+            </a>
+        </div>
+    </div>
+</section>
