@@ -15,7 +15,7 @@ const steps: Step[] = [
     description:
       "Analizamos tu operación en profundidad: procesos, áreas, herramientas y flujos de información. Entendemos cómo funciona tu empresa antes de proponer cualquier cambio.",
     color: "primary",
-    rounded:"rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl"
+    rounded: "lg:rounded-tl-3xl lg:rounded-tr-3xl lg:rounded-bl-3xl"
   },
   {
     number: "2",
@@ -23,7 +23,7 @@ const steps: Step[] = [
     description:
       "Identificamos los puntos críticos, las ineficiencias y los riesgos que podrían afectar una implementación. Los nombramos antes de que se conviertan en problemas.",
     color: "secondary",
-    rounded:"rounded-tl-3xl rounded-tr-3xl"
+    rounded: "lg:rounded-tl-3xl lg:rounded-tr-3xl"
   },
   {
     number: "3",
@@ -31,7 +31,7 @@ const steps: Step[] = [
     description:
       "Determinamos qué sistemas necesitás, cómo deben integrarse y en qué orden implementarlos. Sin sobredimensionar ni quedarse corto.",
     color: "primary",
-    rounded:"rounded-tl-3xl rounded-tr-3xl rounded-br-3xl"
+    rounded: "lg:rounded-tl-3xl lg:rounded-tr-3xl lg:rounded-br-3xl"
   },
   {
     number: "4",
@@ -39,7 +39,7 @@ const steps: Step[] = [
     description:
       "Diseñamos una hoja de ruta con etapas, responsables y tiempos definidos. Un plan que la organización pueda transitar sin fricciones.",
     color: "secondary",
-    rounded:"rounded-bl-3xl rounded-br-3xl rounded-tl-3xl"
+    rounded: "lg:rounded-bl-3xl lg:rounded-br-3xl lg:rounded-tl-3xl"
   },
   {
     number: "5",
@@ -47,7 +47,7 @@ const steps: Step[] = [
     description:
       "Estamos presentes durante todo el proceso. La implementación no termina en el go-live — seguimos hasta que el sistema funciona como tiene que funcionar.",
     color: "primary",
-    rounded:"rounded-bl-3xl rounded-br-3xl"
+    rounded: "lg:rounded-bl-3xl lg:rounded-br-3xl"
   },
 ];
 
@@ -160,42 +160,42 @@ const features: Feature[] = [
 
 <!-- ===================== STEPS ===================== -->
 <section class="bg-white px-6 py-16 md:px-12 lg:px-20">
-    <div class="mx-auto max-w-4xl">
-        <h2 class="text-center text-2xl font-semibold leading-8 md:text-3xl">
-            Un proceso claro, para que
-            <span class="block">nada quede librado al azar.</span>
-        </h2>
+  <div class="mx-auto max-w-4xl">
+      <h2 class="text-center text-2xl font-semibold leading-8 md:text-3xl">
+          Un proceso claro, para que
+          <span class="block">nada quede librado al azar.</span>
+      </h2>
 
-        <div class="mt-10 grid grid-cols-1 overflow-hidden rounded-2xl lg:grid-cols-3">
-            {
-                steps.map((step) => (
-                    <div
-                        class:list={[
-                            "flex min-h-[300px] flex-col px-8 py-8",
-                            step.color === "primary" ? "bg-primary" : "bg-secondary",
-                            step.rounded,
-                        ]}
-                    >
-                        <!-- Número arriba -->
-                        <span class="text-4xl font-light text-white">
-                            {step.number}
-                        </span>
+      <div class="mt-10 grid grid-cols-1 overflow-hidden rounded-2xl md:grid-cols-2 lg:grid-cols-3">
+          {
+              steps.map((step) => (
+                  <div
+                      class:list={[
+                          "flex min-h-[300px] flex-col rounded-3xl px-8 py-8 lg:rounded-none",
+                          step.color === "primary"
+                              ? "bg-primary"
+                              : "bg-secondary",
+                          step.rounded,
+                      ]}
+                  >
+                      <span class="text-4xl font-light text-white">
+                          {step.number}
+                      </span>
 
-                        <!-- Título + descripción abajo -->
-                        <div class="mt-auto">
-                            <h3 class="text-2xl font-semibold text-white">
-                                {step.title}
-                            </h3>
+                      <div class="mt-12 md:mt-8 lg:mt-auto">
+    <h3 class="text-2xl font-semibold text-white">
+        {step.title}
+    </h3>
 
-                            <p class="mt-2 text-sm font-light leading-4 text-white ">
-                                {step.description}
-                            </p>
-                        </div>
-                    </div>
-                ))
-            }
-        </div>
-    </div>
+    <p class="mt-2 text-md md:text-sm font-light leading-5 md:leading-4 text-white">
+        {step.description}
+    </p>
+</div>
+                  </div>
+              ))
+          }
+      </div>
+  </div>
 </section>
 
 <!-- ===================== SITUACIONES ===================== -->
@@ -245,19 +245,19 @@ const features: Feature[] = [
     <div class="mx-auto max-w-9xl">
       <!-- Intro: ícono + texto -->
 <div class="mx-auto grid max-w-3xl items-center gap-8 md:grid-cols-[auto_1fr] md:gap-12">
-    <div class="relative h-40 w-40">
-        <img
-            src="/icons/Capa.svg"
-            alt=""
-            class="h-full w-full"
-        />
-    
-        <img
-            src="/icons/Tilde.svg"
-            alt=""
-            class="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2"
-        />
-    </div>
+  <div class="relative h-28 w-28 xl:h-35 xl:w-35">
+    <img
+        src="/icons/Capa.svg"
+        alt=""
+        class="h-full w-full"
+    />
+
+    <img
+        src="/icons/Tilde.svg"
+        alt=""
+        class="absolute left-1/2 top-1/2 h-9 w-9 -translate-x-1/2 -translate-y-1/2 lg:h-12 lg:w-12"
+    />
+</div>
 
     <div class="font-light">
         <h2 class="text-2xl leading-8 font-light md:text-3xl">
