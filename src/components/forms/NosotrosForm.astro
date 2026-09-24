@@ -1,3 +1,4 @@
+
 <footer class="w-full px-4 py-10 sm:px-6">
     <div class="mx-auto w-full max-w-6xl">
         <div class="grid grid-cols-1 overflow-hidden md:grid-cols-2">
@@ -20,13 +21,18 @@
                 <!-- Descripción -->
                 <slot name="descripcion" />
 
-                <form class="mt-4 space-y-2" onsubmit="event.preventDefault();">
+                <form
+                    action="https://formspree.io/f/mwlpqqyz"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="mt-4 space-y-2"
+                >
                     <!-- Nombre y apellido -->
                     <input
                         type="text"
+                        name="nombre"
                         placeholder="Nombre y apellido"
                         class="w-full rounded-md bg-white px-4 py-2 text-sm text-black placeholder:text-black focus:outline-none"
-                        "
                         required
                     />
 
@@ -34,6 +40,7 @@
                     <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         <input
                             type="tel"
+                            name="telefono"
                             placeholder="Teléfono"
                             class="w-full rounded-md bg-white px-4 py-2 text-sm text-black placeholder:text-black focus:outline-none"
                             required
@@ -41,6 +48,7 @@
 
                         <input
                             type="email"
+                            name="email"
                             placeholder="Email"
                             class="w-full rounded-md bg-white px-4 py-2 text-sm text-black placeholder:text-black focus:outline-none"
                             required
@@ -50,6 +58,7 @@
                     <!-- ¿A qué te dedicás? -->
                     <input
                         type="text"
+                        name="ocupacion"
                         placeholder="¿A qué te dedicás?"
                         class="w-full rounded-md bg-white px-4 py-2 text-sm text-black placeholder:text-black focus:outline-none"
                     />
@@ -57,6 +66,7 @@
                     <!-- ¿Por qué querés trabajar en SYS4? -->
                     <input
                         type="text"
+                        name="motivo"
                         placeholder="¿Por qué querés trabajar en SYS4?"
                         class="w-full rounded-md bg-white px-4 py-2 text-sm text-black placeholder:text-black focus:outline-none"
                     />
@@ -88,15 +98,17 @@
 
                             <input
                                 type="file"
+                                name="cv"
                                 class="hidden"
                                 accept=".pdf,.doc,.docx"
+                                required
                             />
                         </label>
 
                         <!-- Botón -->
                         <button
                             type="submit"
-                            class="w-full rounded-md bg-secondary px-4 py-3 text-base font-medium text-white transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary sm:py-2 sm:text-sm"
+                            class="w-full cursor-pointer rounded-md bg-secondary px-4 py-3 text-base font-medium text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-secondary sm:py-2 sm:text-sm"
                         >
                             Enviar mi información
                         </button>
@@ -109,7 +121,7 @@
                     <a
                         href="#"
                         aria-label="Facebook"
-                        class="transition "
+                        class="transition"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +139,7 @@
                     <a
                         href="https://www.instagram.com/sys4_software/"
                         aria-label="Instagram"
-                        class="flex h-7 w-7 items-center justify-center rounded-full bg-white text-primary transition "
+                        class="flex h-7 w-7 items-center justify-center rounded-full bg-white text-primary transition"
                     >
                         <img
                             src="/icons/Instagram.svg"
@@ -140,3 +152,4 @@
         </div>
     </div>
 </footer>
+
