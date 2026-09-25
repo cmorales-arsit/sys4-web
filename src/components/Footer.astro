@@ -101,15 +101,20 @@ const redesSociales: SocialLink[] = [
         icono: "/icons/Instagram.svg",
     },
     {
-        nombre: "YouTube",
-        href: "#",
-        icono: "/icons/Youtube.svg",
+        nombre: "Facebook",
+        href: "https://www.facebook.com/sys4software/",
+        icono: "/icons/Facebook.svg",
     },
-    {
-        nombre: "WhatsApp",
-        href: "#",
-        icono: "/icons/Whatsapp.svg",
-    },
+    // {
+    //     nombre: "YouTube",
+    //     href: "#",
+    //     icono: "/icons/Youtube.svg",
+    // },
+    // {
+    //     nombre: "WhatsApp",
+    //     href: "#",
+    //     icono: "/icons/Whatsapp.svg",
+    // },
 ];
 ---
 
@@ -137,21 +142,25 @@ const redesSociales: SocialLink[] = [
                 <div
                     class="mt-12 flex items-center justify-center gap-2 lg:justify-start"
                 >
-                    {
-                        redesSociales.map((red) => (
-                            <a
-                                href={red.href}
-                                aria-label={red.nombre}
-                                class="flex h-7 w-7 items-center justify-center rounded-full bg-white transition hover:bg-secondary"
-                            >
-                                <img
-                                    src={red.icono}
-                                    alt={red.nombre}
-                                    class="h-4 w-4"
-                                />
-                            </a>
-                        ))
-                    }
+                {
+                    redesSociales.map((red) => (
+                        <a
+                            href={red.href}
+                            aria-label={red.nombre}
+                            class={
+                                red.nombre === "Facebook"
+                                    ? ""
+                                    : "flex h-7 w-7 items-center justify-center rounded-full bg-white transition "
+                            }
+                        >
+                            <img
+                                src={red.icono}
+                                alt={red.nombre}
+                                class={red.nombre === "Facebook" ? "h-7 w-7" : "h-4 w-4"}
+                            />
+                        </a>
+                    ))
+                }
                 </div>
             </div>
 
