@@ -50,7 +50,7 @@ const operaciones: ModuleItem[] = [
   },
   { title: "Compras", description: "Órdenes de compra y cotización, recepción de mercadería, catálogos de proveedores y comprobantes electrónicos. Todo el circuito de compras bajo control." },
   { title: "Inventario", description: "Administración de múltiples depósitos y ubicaciones, trazabilidad por lote o número de serie, identificación por código de barras y clasificación personalizada de artículos. Sabés exactamente qué tenés y dónde está." },
-  { title: "Fabricación", description: "Listas de materiales, órdenes de fabricación, routing, backflush y gestión de descartes y desperdicios. Control real sobre lo que producís." },
+  { title: "Fabricación", description: "Lista de materiales, órdenes de fabricación, routing, backflush, gestión de descartes y desperdicios y control de calidad. Control real sobre lo que producis."},
 ];
  
 const finanzas: ModuleItem[] = [
@@ -71,15 +71,15 @@ interface Industry {
 }
  
 const industries: Industry[] = [
-  {
-    name: "Constructoras",
-    href: "/industrias/constructoras",
-    icon: "/icons/1.svg"
-  },
-  {
-    name: "Manufacturas",
+{
+    name: "Manufactura",
     href: "/industrias/manufacturas",
     icon: "/icons/3.svg"
+  },
+  {
+    name: "Comercialización",
+    href: "/industrias/comercializadoras",
+    icon: "/icons/2.svg"
   },
   {
     name: "Servicios",
@@ -87,19 +87,9 @@ const industries: Industry[] = [
     icon: "/icons/5.svg"
   },
   {
-    name: "Comercializadoras",
-    href: "/industrias/comercializadoras",
-    icon: "/icons/2.svg"
-  },
-  {
-    name: "Contadores",
-    href: "/industrias/contadores",
-    icon: "/icons/4.svg"
-  },
-  {
-    name: "ONG",
-    href: "/industrias/ong",
-    icon: "/icons/6.svg"
+    name: "Construcción / Obras",
+    href: "/industrias/constructoras",
+    icon: "/icons/1.svg"
   },
 ];
 ---
